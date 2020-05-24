@@ -492,76 +492,76 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="数组展平"><a href="#数组展平" class="headerlink" title="数组展平"></a>数组展平</h2><h3 id="二维数组展平"><a href="#二维数组展平" class="headerlink" title="二维数组展平"></a>二维数组展平</h3><p>展平一个数组，数组最多二维[[1,2],[3,4]] =&gt; [1,2,3,4]</p>
-<pre class=" language-Javascript"><code class="language-Javascript">function flatten(arr){
-  return [].concat(...arr)
-}
-let arr = [[1,2],[3,4]]
-[].concat(arr)
-[].concat(...[arr])
-[].apply(null,[arr])</code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">flatten</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token operator">...</span>arr<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">[</span>arr<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span><span class="token punctuation">[</span>arr<span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 <p>concat() 方法用于连接两个或多个数组。<br>该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。</p>
 <h3 id="多维数组展平-递归"><a href="#多维数组展平-递归" class="headerlink" title="多维数组展平(递归)"></a>多维数组展平(递归)</h3><p>展评一个数组,[[1,2],3,[[[4],5]]] =&gt; [1,2,3,4,5]<br>对数组 ${S}$ = {${a}_1$,${a}_2$,…,${a}_n$},函数${F}$将数组展平<br>${F}({S}) = {F}(a_1)\cup{F}(a_2)\cup…\cup{F}(a_n)$<br>$<br>  F(a_i)=<br>  \begin{cases}<br>  a_i数字 \<br>  F(a_i) 数组<br>  \end{cases}<br>$</p>
-<pre class=" language-Javascript"><code class="language-Javascript">function flatten(arr) {
-  return [].concat(...arr.map((x) => (Array.isArray(x) ? flatten(x) : x)));
-}</code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">flatten</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token operator">...</span>arr<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">flatten</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">:</span> x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="函数节流"><a href="#函数节流" class="headerlink" title="函数节流"></a>函数节流</h3><p>添加滚动事件 60ms 响应 1 次</p>
-<pre class=" language-Javascript"><code class="language-Javascript">document.addEventListener('scroll', throttle(console.log));
-function throttle(func, delay = 60) {
-  let lock = false;
-  return (...args) => {
-    if (lock) {
-      return;
-    }
-    func(...args);
-    lock = true;
-    setTimeout(() => {
-      lock = false;
-    }, delay);
-  };
-}</code></pre>
+<pre class=" language-javascript"><code class="language-javascript">document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'scroll'</span><span class="token punctuation">,</span> <span class="token function">throttle</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span>func<span class="token punctuation">,</span> delay <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> lock <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>lock<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">func</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    lock <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      lock <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <p>过滤掉重复的验证事件(用户输入停止后 300ms 触发验证)</p>
-<pre class=" language-Javascript"><code class="language-Javascript">function throttle(func, delay = 300, I = null) {
-  return (...args) => {
-    clearInterval(I);
-    I = setTimeout(func.bind(null, ...args), delay);
-    // I = setTimeout((...args) => {func(...args)}, delay);
-  };
-}</code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span>func<span class="token punctuation">,</span> delay <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">,</span> I <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token function">clearInterval</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    I <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span>func<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// I = setTimeout((...args) => {func(...args)}, delay);</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <h2 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h2><p>柯里化，英语：Currying(果然是满满的英译中的既视感)，是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。</p>
 <p><a href="https://www.jianshu.com/p/2975c25e4d71" target="_blank" rel="noopener">详解 JS 函数柯里化</a></p>
-<pre class=" language-Javascript"><code class="language-Javascript">const curry = (func) => {
-  const g = (...allArgs) =>
-    allArgs.length >= func.length
-      ? func(...allArgs)
-      : (...args) => g(...allArgs, ...args);
-  return g;
-};
-const foo = curry((a, b, c, d) => {
-  console.log(a, b, c, d);
-});</code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> curry <span class="token operator">=</span> <span class="token punctuation">(</span>func<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> g <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">...</span>allArgs<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span>
+    allArgs<span class="token punctuation">.</span>length <span class="token operator">>=</span> func<span class="token punctuation">.</span>length
+      <span class="token operator">?</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token operator">...</span>allArgs<span class="token punctuation">)</span>
+      <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">g</span><span class="token punctuation">(</span><span class="token operator">...</span>allArgs<span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> g<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token function">curry</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>对于 curry(foo),g 函数参数足够 4 个,就调用 foo(a,b,c,d),如果小于 4 个就返回一个可以继续积累参数的函数</p>
 <h3 id="Y-组合子"><a href="#Y-组合子" class="headerlink" title="Y-组合子"></a>Y-组合子</h3><p>前置知识 lamabda 演算</p>
-<pre class=" language-Javascript"><code class="language-Javascript">const y = (function (le) {
-  return function (f) {
-    return f(f);
-  };
-})(function (f) {
-  return le(function (...x) {
-    return f(f)(...x);
-  });
-});
-const curryY = (func) =>
-  y((g) => {
-    (...allArgs) => {
-      allArgs.length >= func.length
-        ? func(...allArgs)
-        : (...args) => g(...allArgs, ...args);
-    };
-  });
-const foo = curryY((a, b, c, d) => {
-  console.log(a, b, c, d);
-});
-foo(1)(2)(3)(4);</code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> y <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>le<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>f<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">f</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>f<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">le</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token operator">...</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">f</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token operator">...</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> curryY <span class="token operator">=</span> <span class="token punctuation">(</span>func<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span>
+  <span class="token function">y</span><span class="token punctuation">(</span><span class="token punctuation">(</span>g<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token punctuation">(</span><span class="token operator">...</span>allArgs<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      allArgs<span class="token punctuation">.</span>length <span class="token operator">>=</span> func<span class="token punctuation">.</span>length
+        <span class="token operator">?</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token operator">...</span>allArgs<span class="token punctuation">)</span>
+        <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">g</span><span class="token punctuation">(</span><span class="token operator">...</span>allArgs<span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token function">curryY</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 
             </div>
             <hr/>
@@ -1022,7 +1022,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.9k</span>&nbsp;字
+                class="white-color">5k</span>&nbsp;字
             
             
             
