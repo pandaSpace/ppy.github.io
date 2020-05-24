@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="HashMap, gongchenghui,github">
+    <meta name="keywords" content="vue封装toast组件, gongchenghui,github">
     <meta name="description" content="北冥有鱼，其名为鲲，鲲之大，不知其几千里也； 化而为鸟，其名为鹏.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>HashMap | Ppy</title>
+    <title>vue封装toast组件 | Ppy</title>
     <link rel="icon" type="image/png" href="/ppy.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/ppy.github.io/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/ppy.github.io/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/ppy.github.io/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">HashMap</h1>
+                    <h1 class="description center-align post-title">vue封装toast组件</h1>
                 </div>
             </div>
         </div>
@@ -431,12 +431,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/ppy.github.io/tags/HashMap/">
-                                <span class="chip bg-color">HashMap</span>
+                            <a href="/ppy.github.io/tags/javascript/">
+                                <span class="chip bg-color">javascript</span>
                             </a>
                         
-                            <a href="/ppy.github.io/tags/Java/">
-                                <span class="chip bg-color">Java</span>
+                            <a href="/ppy.github.io/tags/vue/">
+                                <span class="chip bg-color">vue</span>
+                            </a>
+                        
+                            <a href="/ppy.github.io/tags/toast/">
+                                <span class="chip bg-color">toast</span>
                             </a>
                         
                     </div>
@@ -447,8 +451,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/ppy.github.io/categories/Java/" class="post-category">
-                                Java
+                            <a href="/ppy.github.io/categories/vue/" class="post-category">
+                                vue
                             </a>
                         
                     </div>
@@ -460,7 +464,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-24
+                    2020-05-25
                 </div>
                 
 
@@ -469,14 +473,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    279
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    1 分
                 </div>
                 
 
@@ -491,53 +495,88 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><p>hashMap 底层数据结构：<code>数组</code><br><code>map.put(&quot;张三&quot;,xx)</code><br>对 key 计算得到 hash，然后对 hash 值进行取模，定位到数组中的某下标中去。<br> [&lt;张三，测试数据&gt;，&lt;李四，测试数据&gt;]</p>
-<h3 id="HashMap-怎么进行优化的"><a href="#HashMap-怎么进行优化的" class="headerlink" title="HashMap 怎么进行优化的"></a>HashMap 怎么进行优化的</h3><h4 id="寻址算法优化"><a href="#寻址算法优化" class="headerlink" title="寻址算法优化"></a>寻址算法优化</h4><p>数据在插入前，进行一个 hash 计算。<br>高位右移 16 位，与原数进行异或计算,目的为了保留高位与低位的特征，减少 hash 冲突。<br>再与数组长度 n - 1 进行与运算，例如 16,16 转换为二进制 高位全为 0，与其进行与运算，高位部分的运算可忽略。</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">hash</span><span class="token punctuation">(</span>Object key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> h<span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token punctuation">(</span>key <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> <span class="token punctuation">(</span>h <span class="token operator">=</span> key<span class="token punctuation">.</span><span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token punctuation">(</span>h <span class="token operator">>>></span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span></code></pre>
-<p>步骤：</p>
-<hr>
-<ol>
-<li><p>取到 key 的 hash 值，32 位二进制数<br><code>1111 1111 1111 1111 1111 1010 0111 1100</code></p>
+                <h2 id="vue-封装-toast-组件"><a href="#vue-封装-toast-组件" class="headerlink" title="vue 封装 toast 组件"></a>vue 封装 toast 组件</h2><ol>
+<li><p>创建 toast.vue 文件</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token comment" spellcheck="true">&lt;!-- 全局提示框 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-show</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>visible<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dialog-tips dialog-center<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>{{message}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span>
+<span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+ <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+   <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token keyword">return</span> <span class="token punctuation">{</span>
+       visible<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+       message<span class="token punctuation">:</span> <span class="token string">""</span>
+     <span class="token punctuation">}</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span><span class="token punctuation">;</span>
+ </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>scss<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
+ <span class="token selector"><span class="token class">.dialog-tips</span></span><span class="token punctuation">{</span>
+     <span class="token selector">position: fixed;
+     z-index: 100;
+     min-width: 220px;
+     padding: 40px 22px;
+     white-space: nowrap;
+     background-color: <span class="token id">#fff</span>;
+     box-shadow: 0px 8px 15px 0 rgba(0, 0, 0, 0<span class="token class">.1</span>);
+     text-align: center;
+     <span class="token class">.dialog-tips-icon</span></span><span class="token punctuation">{</span>
+         <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">54</span>px<span class="token punctuation">;</span>
+         <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">54</span>px<span class="token punctuation">;</span>
+         <span class="token atrule"><span class="token rule">@extend</span> %bg-contain<span class="token punctuation">;</span></span>
+         <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+         <span class="token property">margin-bottom</span><span class="token punctuation">:</span> <span class="token number">13</span>px<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+ <span class="token selector"><span class="token class">.dialog-center</span> </span><span class="token punctuation">{</span>
+     <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">50%</span><span class="token punctuation">;</span>
+     <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">50%</span><span class="token punctuation">;</span>
+     <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>-<span class="token number">50%</span>, -<span class="token number">50%</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre>
 </li>
-<li><p>右移 16 位，高位 0 补齐<br><code>0000 0000 0000 00001111 1111 1111 1111</code></p>
+<li><p>创建 toast.js 文件</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">import</span> ToastComponent <span class="token keyword">from</span> <span class="token string">'./toast.vue'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> Toast <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 注册 Toast</span>
+Toast<span class="token punctuation">.</span>install <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>Vue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 生成一个 Vue 的子类</span>
+  <span class="token comment" spellcheck="true">// 同时这个子类也就是组件</span>
+  <span class="token keyword">const</span> ToastConstructor <span class="token operator">=</span> Vue<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span>ToastComponent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 生成一个该子类的实例</span>
+  <span class="token keyword">const</span> instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ToastConstructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 将这个实例挂载在我创建的div上</span>
+  <span class="token comment" spellcheck="true">// 并将此div加入全局挂载点内部</span>
+  instance<span class="token punctuation">.</span><span class="token function">$mount</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>instance<span class="token punctuation">.</span>$el<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 通过Vue的原型注册一个方法</span>
+  <span class="token comment" spellcheck="true">// 让所有实例共享这个方法</span>
+  Vue<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>$toast <span class="token operator">=</span> <span class="token punctuation">(</span>msg<span class="token punctuation">,</span> duration <span class="token operator">=</span> <span class="token number">1500</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    instance<span class="token punctuation">.</span>message <span class="token operator">=</span> msg<span class="token punctuation">;</span>
+    instance<span class="token punctuation">.</span>visible <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      instance<span class="token punctuation">.</span>visible <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> duration<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> Toast<span class="token punctuation">;</span></code></pre>
 </li>
-<li><p>异或运算，同位数字相同得到 0，不同则<br>1111 1111 1111 1111 1111 1010 0111 1100<br>0000 0000 0000 0000 1111 1111 1111 1111<br>得:1111 1111 1111 1111 0000 0101 1000 0011</p>
+<li><p>在 main.js 中引入</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Toast <span class="token keyword">from</span> <span class="token string">'./toast'</span><span class="token punctuation">;</span>
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Toast<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 </li>
-<li><p>最后转换 int 值(int 值本身也是 32 位)</p>
-</li>
-<li><p>取到 map 的长度 - 1 转换 2 进制 和 上面的值做与运算</p>
+<li><p>使用 toast</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$toast</span><span class="token punctuation">(</span><span class="token string">'XXXXXXXXX'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 </li>
 </ol>
-<p>比如 16 长度的 map 16 - 1<br> 0000 0000 0000 0000 0000 0000 0000 1111<br> 1111 1111 1111 1111 0000 0101 1000 0011</p>
-<p>这样做的目的是 ，16 做完了二进制 高位全是 0<br> 而 map 的长度不会很大最多是后 16 位有值，<br>这样一来，高位基本不做运算。</p>
-<p>而第一步做的异或运算是为了在这一步。因为这里与运算基本是后 16 位在做运算<br>很有可能后 16 位的值一样导致 hash 冲突。<br>所以高 16 位与低 16 位做异或可以同时保留 高位与低位的特征，减少 hash 冲突。`</p>
-<hr>
-<h4 id="hash-冲突如何解决"><a href="#hash-冲突如何解决" class="headerlink" title="hash 冲突如何解决"></a>hash 冲突如何解决</h4><p>1.7 之前为数组+链表<br>1.8 以后 hashMap 处理冲突有两种方式，链表 O(n)与红黑树 O(log n)。<br><img src="/ppy.github.io/2020/05/24/HashMap/13de3a30.png" alt><br>当 hash 运算时，会存在俩个或两个以上元素取模到同一数组下标中去。<br>最开始会采用链表的形式将多个元素挂在到同一下标，当链表长度达到一定量（大于 8），会转换为红黑树。<br>为什么要转换红黑树？<br>当 map 在 get 元素时，发现是链表，这时需要遍历链表去取出元素，最坏情况下时间复杂度为 O(n)<br>而红黑树遍历找元素的复杂度为 O(log n)</p>
-<h3 id="HashMap-的扩容"><a href="#HashMap-的扩容" class="headerlink" title="HashMap 的扩容"></a>HashMap 的扩容</h3><p>初始值:16<br>扩容因子:0.75<br>初始数组大小为 16,当数组元素达到<code>数组长度*0.75</code>时，扩容两倍。</p>
-<hr>
-<p>判断二进制结果中是否多出一个 bit 的 1， 如果没有多 ，那么就是原来的 index<br>如果多了，就是 index+oldcap，通过这个方式，避免了 rehash 的时候用每个 hash 对新数组取保，取模性能不高，位运算性能比较高</p>
-<p>比如</p>
-<p><img src="/ppy.github.io/2020/05/24/HashMap/f2aeb9d3.png" alt></p>
-<p>1111 = 15<br>11111 = 31<br>如果长度发生变化，则 index 与 长度 进行 或 运算，得到新位置下标</p>
-<h4 id="设定初始值容量"><a href="#设定初始值容量" class="headerlink" title="设定初始值容量"></a>设定初始值容量</h4><p>new HashMap()，如果传入初始值 k，则初始化大小为 <code>大于k的2的整次方</code>，例如传 10，大小为 16</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">tableSizeFor</span><span class="token punctuation">(</span><span class="token keyword">int</span> cap<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">int</span> n <span class="token operator">=</span> cap <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
-  n <span class="token operator">|=</span> n <span class="token operator">>>></span> <span class="token number">1</span><span class="token punctuation">;</span>
-  n <span class="token operator">|=</span> n <span class="token operator">>>></span> <span class="token number">2</span><span class="token punctuation">;</span>
-  n <span class="token operator">|=</span> n <span class="token operator">>>></span> <span class="token number">4</span><span class="token punctuation">;</span>
-  n <span class="token operator">|=</span> n <span class="token operator">>>></span> <span class="token number">8</span><span class="token punctuation">;</span>
-  n <span class="token operator">|=</span> n <span class="token operator">>>></span> <span class="token number">16</span><span class="token punctuation">;</span>
-  <span class="token keyword">return</span> <span class="token punctuation">(</span>n <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">1</span> <span class="token operator">:</span> <span class="token punctuation">(</span>n <span class="token operator">>=</span> MAXIMUM_CAPACITY<span class="token punctuation">)</span> <span class="token operator">?</span> MAXIMUM_CAPACITY <span class="token operator">:</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<h2 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h2><p>1.8 以前 多个数组，分段加锁，一个数组一个锁，<br>1.8 以后 优化细粒度，一个数组，每个元素进行 cas，如果失败了说明有人，此时 synchronized 对数组元素加锁，链表+红黑树处理，对数组的每个元素 cas 加锁，</p>
-<p>hashMap 底层是一个大数组</p>
-<p>1.7 及以前 分段<br>[数组 1][数组2] [数组 3] 每个数组对应一个锁</p>
-<p>多个线程过来 线程 1 对数组 1[5] 线程 2 对数组 2[25]，加的不是同一把锁</p>
-<p>1.8 以后，锁粒度细化，[一个大数组]，每个元素进行 put 都是一个不同的锁，采用 CAS 策略。</p>
-<p>比如俩个人同时对[5] put，这时失败了，就需要在这个位置基于链表+红黑树进行处理，加 synchronized 对数组[5],基于红黑树或者是链表在这个位置插进去自己的数据（为什么要用链表加红黑树，和 hashMap 的 hash 碰撞有关，当发生 hash 碰撞，会把元素插在同一数组上，用链表的形式，链表达到一定程度就会变为红黑树方式）</p>
 
             </div>
             <hr/>
@@ -563,7 +602,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://pandaspace.github.io/ppy.github.io/2020/05/24/HashMap/">https://pandaspace.github.io/ppy.github.io/2020/05/24/HashMap/</a>
+                    <a href="https://pandaspace.github.io/ppy.github.io/2020/05/25/vue-toast/">https://pandaspace.github.io/ppy.github.io/2020/05/25/vue-toast/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -601,12 +640,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/ppy.github.io/tags/HashMap/">
-                                    <span class="chip bg-color">HashMap</span>
+                                <a href="/ppy.github.io/tags/javascript/">
+                                    <span class="chip bg-color">javascript</span>
                                 </a>
                             
-                                <a href="/ppy.github.io/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
+                                <a href="/ppy.github.io/tags/vue/">
+                                    <span class="chip bg-color">vue</span>
+                                </a>
+                            
+                                <a href="/ppy.github.io/tags/toast/">
+                                    <span class="chip bg-color">toast</span>
                                 </a>
                             
                         </div>
@@ -682,52 +725,60 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/ppy.github.io/2020/05/24/redis/">
+                <a href="/ppy.github.io/2020/05/25/vue-toast/">
                     <div class="card-image">
                         
                         
-                        <img src="/ppy.github.io/medias/featureimages/11.jpg" class="responsive-img" alt="Redis">
+                        <img src="/ppy.github.io/medias/featureimages/23.jpg" class="responsive-img" alt="vue封装toast组件">
                         
-                        <span class="card-title">Redis</span>
+                        <span class="card-title">vue封装toast组件</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Redis 工作原理
-多路复用Redis 在处理客户端请求时采用 IO 多路复用，多路复用只是告诉你，那几个客户端有新消息需要去处理
-Redis 的单线程Redis 内有一个处理计算等请求的工作线程，保证所有操作是单线程在进行从而保证了 R
+                            vue 封装 toast 组件
+创建 toast.vue 文件
+&lt;template>
+  &lt;!-- 全局提示框 -->
+  &lt;div v-show="visible" class="dialog-tips dialog-c
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/ppy.github.io/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/ppy.github.io/categories/vue/" class="post-category">
+                                    vue
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/ppy.github.io/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/ppy.github.io/tags/javascript/">
+                        <span class="chip bg-color">javascript</span>
                     </a>
                     
-                    <a href="/ppy.github.io/tags/Redis/">
-                        <span class="chip bg-color">Redis</span>
+                    <a href="/ppy.github.io/tags/vue/">
+                        <span class="chip bg-color">vue</span>
+                    </a>
+                    
+                    <a href="/ppy.github.io/tags/toast/">
+                        <span class="chip bg-color">toast</span>
                     </a>
                     
                 </div>
@@ -741,32 +792,40 @@ Redis 的单线程Redis 内有一个处理计算等请求的工作线程，保�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/ppy.github.io/2020/05/24/markdown/">
+                <a href="/ppy.github.io/2020/05/25/axios/">
                     <div class="card-image">
                         
                         
-                        <img src="/ppy.github.io/medias/featureimages/1.jpg" class="responsive-img" alt="hexo、markdown用法">
+                        <img src="/ppy.github.io/medias/featureimages/10.jpg" class="responsive-img" alt="axios二次封装 接口统一存放">
                         
-                        <span class="card-title">hexo、markdown用法</span>
+                        <span class="card-title">axios二次封装 接口统一存放</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Markdown 语法中输入数学公式（MathJax）及特殊符号Hexo+github 搭建博客(超级详细版，精细入微)Hexo 博客主题之 hexo-theme-matery 的介绍
+                            axios 二次封装 接口统一存放
+基于框架：vue
 
+基于 http 库：axios
+
+基本用法：
+
+通过 node 安装:npm install axios
+
+在项目目录的 src 文件夹下新建 providers 文件夹，在该文件夹内
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/ppy.github.io/categories/markdown/" class="post-category">
-                                    markdown
+                            <a href="/ppy.github.io/categories/axios/" class="post-category">
+                                    axios
                                 </a>
                             
                             
@@ -776,12 +835,20 @@ Redis 的单线程Redis 内有一个处理计算等请求的工作线程，保�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/ppy.github.io/tags/Markdown/">
-                        <span class="chip bg-color">Markdown</span>
+                    <a href="/ppy.github.io/tags/Javascript/">
+                        <span class="chip bg-color">Javascript</span>
                     </a>
                     
-                    <a href="/ppy.github.io/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/ppy.github.io/tags/vue/">
+                        <span class="chip bg-color">vue</span>
+                    </a>
+                    
+                    <a href="/ppy.github.io/tags/axios/">
+                        <span class="chip bg-color">axios</span>
+                    </a>
+                    
+                    <a href="/ppy.github.io/tags/node/">
+                        <span class="chip bg-color">node</span>
                     </a>
                     
                 </div>

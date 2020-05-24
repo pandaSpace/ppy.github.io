@@ -6,7 +6,7 @@
   <link href="/ppy.github.io/atom.xml" rel="self"/>
   
   <link href="https://pandaspace.github.io/"/>
-  <updated>2020-05-24T15:16:26.890Z</updated>
+  <updated>2020-05-24T18:54:57.528Z</updated>
   <id>https://pandaspace.github.io/</id>
   
   <author>
@@ -15,6 +15,71 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue封装toast组件</title>
+    <link href="https://pandaspace.github.io/2020/05/25/vue-toast/"/>
+    <id>https://pandaspace.github.io/2020/05/25/vue-toast/</id>
+    <published>2020-05-24T18:37:54.000Z</published>
+    <updated>2020-05-24T18:54:57.528Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;vue-封装-toast-组件&quot;&gt;&lt;a href=&quot;#vue-封装-toast-组件&quot; class=&quot;headerlink&quot; title=&quot;vue 封装 toast 组件&quot;&gt;&lt;/a&gt;vue 封装 toast 组件&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;创建
+        
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="https://pandaspace.github.io/categories/vue/"/>
+    
+    
+      <category term="javascript" scheme="https://pandaspace.github.io/tags/javascript/"/>
+    
+      <category term="vue" scheme="https://pandaspace.github.io/tags/vue/"/>
+    
+      <category term="toast" scheme="https://pandaspace.github.io/tags/toast/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>axios二次封装 接口统一存放</title>
+    <link href="https://pandaspace.github.io/2020/05/25/axios/"/>
+    <id>https://pandaspace.github.io/2020/05/25/axios/</id>
+    <published>2020-05-24T18:16:35.000Z</published>
+    <updated>2020-05-24T18:36:44.119Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;axios-二次封装-接口统一存放&quot;&gt;&lt;a href=&quot;#axios-二次封装-接口统一存放&quot; class=&quot;headerlink&quot; title=&quot;axios 二次封装 接口统一存放&quot;&gt;&lt;/a&gt;axios 二次封装
+        
+      
+    
+    </summary>
+    
+    
+      <category term="axios" scheme="https://pandaspace.github.io/categories/axios/"/>
+    
+    
+      <category term="Javascript" scheme="https://pandaspace.github.io/tags/Javascript/"/>
+    
+      <category term="vue" scheme="https://pandaspace.github.io/tags/vue/"/>
+    
+      <category term="axios" scheme="https://pandaspace.github.io/tags/axios/"/>
+    
+      <category term="node" scheme="https://pandaspace.github.io/tags/node/"/>
+    
+  </entry>
   
   <entry>
     <title>Mybatis</title>
@@ -109,7 +174,7 @@
     <link href="https://pandaspace.github.io/2020/05/24/markdown/"/>
     <id>https://pandaspace.github.io/2020/05/24/markdown/</id>
     <published>2020-05-24T09:46:34.000Z</published>
-    <updated>2020-05-24T15:00:21.463Z</updated>
+    <updated>2020-05-24T17:53:07.006Z</updated>
     
     <summary type="html">
     
