@@ -338,7 +338,7 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(/ppy.github.io/medias/banner/4.jpg)');
+    $('.bg-cover').css('background-image', 'url(/ppy.github.io/medias/banner/0.jpg)');
 </script>
 
 
@@ -357,10 +357,70 @@
             </div>
             <div class="tag-chips">
                 
+                
+                <a href="/ppy.github.io/tags/javascript/" title="javascript: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="javascript" style="background-color: #F9EBEA;">javascript
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/ppy.github.io/tags/javascript%E7%AE%97%E6%B3%95/" title="javascript算法: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="javascript算法" style="background-color: #F5EEF8;">javascript算法
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/ppy.github.io/tags/markdown/" title="markdown: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="markdown" style="background-color: #D5F5E3;">markdown
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/ppy.github.io/tags/hexo/" title="hexo: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="hexo" style="background-color: #E8F8F5;">hexo
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
             </div>
         </div>
     </div>
 </div>
+
+    
+    <link rel="stylesheet" type="text/css" href="/ppy.github.io/libs/jqcloud/jqcloud.css">
+<style type="text/css">
+    #tag-wordcloud {
+        width: 100%;
+        height: 300px;
+    }
+</style>
+
+<div class="container" data-aos="fade-up">
+    <div class="card">
+        <div id="tag-wordcloud" class="card-content"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/ppy.github.io/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
+<script type="text/javascript">
+    
+
+    $('#tag-wordcloud').jQCloud([{"text":"javascript","weight":1,"link":"/ppy.github.io/tags/javascript/"},{"text":"javascript算法","weight":1,"link":"/ppy.github.io/tags/javascript算法/"},{"text":"markdown","weight":1,"link":"/ppy.github.io/tags/markdown/"},{"text":"hexo","weight":1,"link":"/ppy.github.io/tags/hexo/"}], {
+        autoResize: true
+    });
+</script>
 
     
 
@@ -433,7 +493,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">73</span>&nbsp;字
+                class="white-color">573</span>&nbsp;字
             
             
             
