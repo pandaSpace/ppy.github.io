@@ -431,12 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/ppy.github.io/tags/java/">
-                                <span class="chip bg-color">java</span>
-                            </a>
-                        
                             <a href="/ppy.github.io/tags/HashMap/">
                                 <span class="chip bg-color">HashMap</span>
+                            </a>
+                        
+                            <a href="/ppy.github.io/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
                     </div>
@@ -447,8 +447,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/ppy.github.io/categories/java/" class="post-category">
-                                java
+                            <a href="/ppy.github.io/categories/Java/" class="post-category">
+                                Java
                             </a>
                         
                     </div>
@@ -493,10 +493,10 @@
             <div id="articleContent">
                 <h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><p>hashMap 底层数据结构：<code>数组</code><br><code>map.put(&quot;张三&quot;,xx)</code><br>对 key 计算得到 hash，然后对 hash 值进行取模，定位到数组中的某下标中去。<br> [&lt;张三，测试数据&gt;，&lt;李四，测试数据&gt;]</p>
 <h3 id="HashMap-怎么进行优化的"><a href="#HashMap-怎么进行优化的" class="headerlink" title="HashMap 怎么进行优化的"></a>HashMap 怎么进行优化的</h3><h4 id="寻址算法优化"><a href="#寻址算法优化" class="headerlink" title="寻址算法优化"></a>寻址算法优化</h4><p>数据在插入前，进行一个 hash 计算。<br>高位右移 16 位，与原数进行异或计算,目的为了保留高位与低位的特征，减少 hash 冲突。<br>再与数组长度 n - 1 进行与运算，例如 16,16 转换为二进制 高位全为 0，与其进行与运算，高位部分的运算可忽略。</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">hash</span><span class="token punctuation">(</span>Object key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> h<span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token punctuation">(</span>key <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> <span class="token punctuation">(</span>h <span class="token operator">=</span> key<span class="token punctuation">.</span><span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token punctuation">(</span>h <span class="token operator">>>></span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span></code></pre>
+<pre class=" language-Java"><code class="language-Java">static final int hash(Object key) {
+        int h;
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+    }</code></pre>
 <p>步骤：</p>
 <hr>
 <ol>
@@ -523,15 +523,15 @@
 <p><img src="/ppy.github.io/2020/05/24/HashMap/f2aeb9d3.png" alt></p>
 <p>1111 = 15<br>11111 = 31<br>如果长度发生变化，则 index 与 长度 进行 或 运算，得到新位置下标</p>
 <h4 id="设定初始值容量"><a href="#设定初始值容量" class="headerlink" title="设定初始值容量"></a>设定初始值容量</h4><p>new HashMap()，如果传入初始值 k，则初始化大小为 <code>大于k的2的整次方</code>，例如传 10，大小为 16</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">tableSizeFor</span><span class="token punctuation">(</span><span class="token keyword">int</span> cap<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">int</span> n <span class="token operator">=</span> cap <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
-  n <span class="token operator">|=</span> n <span class="token operator">>>></span> <span class="token number">1</span><span class="token punctuation">;</span>
-  n <span class="token operator">|=</span> n <span class="token operator">>>></span> <span class="token number">2</span><span class="token punctuation">;</span>
-  n <span class="token operator">|=</span> n <span class="token operator">>>></span> <span class="token number">4</span><span class="token punctuation">;</span>
-  n <span class="token operator">|=</span> n <span class="token operator">>>></span> <span class="token number">8</span><span class="token punctuation">;</span>
-  n <span class="token operator">|=</span> n <span class="token operator">>>></span> <span class="token number">16</span><span class="token punctuation">;</span>
-  <span class="token keyword">return</span> <span class="token punctuation">(</span>n <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">1</span> <span class="token operator">:</span> <span class="token punctuation">(</span>n <span class="token operator">>=</span> MAXIMUM_CAPACITY<span class="token punctuation">)</span> <span class="token operator">?</span> MAXIMUM_CAPACITY <span class="token operator">:</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<pre class=" language-Java"><code class="language-Java">static final int tableSizeFor(int cap) {
+  int n = cap - 1;
+  n |= n >>> 1;
+  n |= n >>> 2;
+  n |= n >>> 4;
+  n |= n >>> 8;
+  n |= n >>> 16;
+  return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
+}</code></pre>
 <h2 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h2><p>1.8 以前 多个数组，分段加锁，一个数组一个锁，<br>1.8 以后 优化细粒度，一个数组，每个元素进行 cas，如果失败了说明有人，此时 synchronized 对数组元素加锁，链表+红黑树处理，对数组的每个元素 cas 加锁，</p>
 <p>hashMap 底层是一个大数组</p>
 <p>1.7 及以前 分段<br>[数组 1][数组2] [数组 3] 每个数组对应一个锁</p>
@@ -601,12 +601,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/ppy.github.io/tags/java/">
-                                    <span class="chip bg-color">java</span>
-                                </a>
-                            
                                 <a href="/ppy.github.io/tags/HashMap/">
                                     <span class="chip bg-color">HashMap</span>
+                                </a>
+                            
+                                <a href="/ppy.github.io/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
                         </div>
@@ -682,52 +682,52 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/ppy.github.io/2020/05/24/HashMap/">
+                <a href="/ppy.github.io/2020/05/24/redis/">
                     <div class="card-image">
                         
                         
-                        <img src="/ppy.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="HashMap">
+                        <img src="/ppy.github.io/medias/featureimages/11.jpg" class="responsive-img" alt="Redis">
                         
-                        <span class="card-title">HashMap</span>
+                        <span class="card-title">Redis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            HashMaphashMap 底层数据结构：数组map.put(&quot;张三&quot;,xx)对 key 计算得到 hash，然后对 hash 值进行取模，定位到数组中的某下标中去。 [&lt;张三，测试数据&gt;，&lt;李四，测
+                            Redis 工作原理
+多路复用Redis 在处理客户端请求时采用 IO 多路复用，多路复用只是告诉你，那几个客户端有新消息需要去处理
+Redis 的单线程Redis 内有一个处理计算等请求的工作线程，保证所有操作是单线程在进行从而保证了 R
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/ppy.github.io/categories/java/" class="post-category">
-                                    java
+                            <a href="/ppy.github.io/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/ppy.github.io/tags/java/">
-                        <span class="chip bg-color">java</span>
+                    <a href="/ppy.github.io/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/ppy.github.io/tags/HashMap/">
-                        <span class="chip bg-color">HashMap</span>
+                    <a href="/ppy.github.io/tags/Redis/">
+                        <span class="chip bg-color">Redis</span>
                     </a>
                     
                 </div>
@@ -753,7 +753,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Markdown语法中输入数学公式（MathJax）及特殊符号Hexo+github搭建博客(超级详细版，精细入微)
+                            Markdown 语法中输入数学公式（MathJax）及特殊符号Hexo+github 搭建博客(超级详细版，精细入微)
 
                         
                     </div>
@@ -776,12 +776,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/ppy.github.io/tags/markdown/">
-                        <span class="chip bg-color">markdown</span>
+                    <a href="/ppy.github.io/tags/Markdown/">
+                        <span class="chip bg-color">Markdown</span>
                     </a>
                     
-                    <a href="/ppy.github.io/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/ppy.github.io/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
                     </a>
                     
                 </div>
@@ -988,7 +988,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">1.7k</span>&nbsp;字
+                class="white-color">3.2k</span>&nbsp;字
             
             
             
