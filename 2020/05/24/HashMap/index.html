@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo、markdown用法, gongchenghui,github">
+    <meta name="keywords" content="HashMap, gongchenghui,github">
     <meta name="description" content="北冥有鱼，其名为鲲，鲲之大，不知其几千里也； 化而为鸟，其名为鹏.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>hexo、markdown用法 | Ppy</title>
+    <title>HashMap | Ppy</title>
     <link rel="icon" type="image/png" href="/ppy.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/ppy.github.io/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/ppy.github.io/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/ppy.github.io/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hexo、markdown用法</h1>
+                    <h1 class="description center-align post-title">HashMap</h1>
                 </div>
             </div>
         </div>
@@ -429,29 +429,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/ppy.github.io/tags/markdown/">
-                                <span class="chip bg-color">markdown</span>
-                            </a>
-                        
-                            <a href="/ppy.github.io/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/ppy.github.io/categories/markdown/" class="post-category">
-                                markdown
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -469,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    31
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -491,7 +474,53 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><a href="https://www.jianshu.com/p/8363e3815b92" target="_blank" rel="noopener">Markdown语法中输入数学公式（MathJax）及特殊符号</a><br><a href="https://yafine-blog.cn/posts/4ab2.html" target="_blank" rel="noopener">Hexo+github搭建博客(超级详细版，精细入微)</a></p>
+                <h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><p>hashMap 底层数据结构：<code>数组</code><br><code>map.put(&quot;张三&quot;,xx)</code><br>对 key 计算得到 hash，然后对 hash 值进行取模，定位到数组中的某下标中去。<br> [&lt;张三，测试数据&gt;，&lt;李四，测试数据&gt;]</p>
+<h3 id="HashMap-怎么进行优化的"><a href="#HashMap-怎么进行优化的" class="headerlink" title="HashMap 怎么进行优化的"></a>HashMap 怎么进行优化的</h3><h4 id="寻址算法优化"><a href="#寻址算法优化" class="headerlink" title="寻址算法优化"></a>寻址算法优化</h4><p>数据在插入前，进行一个 hash 计算。<br>高位右移 16 位，与原数进行异或计算,目的为了保留高位与低位的特征，减少 hash 冲突。<br>再与数组长度 n - 1 进行与运算，例如 16,16 转换为二进制 高位全为 0，与其进行与运算，高位部分的运算可忽略。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">hash</span><span class="token punctuation">(</span>Object key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> h<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>key <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> <span class="token punctuation">(</span>h <span class="token operator">=</span> key<span class="token punctuation">.</span><span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token punctuation">(</span>h <span class="token operator">>>></span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre>
+<p>步骤：</p>
+<hr>
+<ol>
+<li><p>取到 key 的 hash 值，32 位二进制数<br><code>1111 1111 1111 1111 1111 1010 0111 1100</code></p>
+</li>
+<li><p>右移 16 位，高位 0 补齐<br><code>0000 0000 0000 00001111 1111 1111 1111</code></p>
+</li>
+<li><p>异或运算，同位数字相同得到 0，不同则<br>1111 1111 1111 1111 1111 1010 0111 1100<br>0000 0000 0000 0000 1111 1111 1111 1111<br>得:1111 1111 1111 1111 0000 0101 1000 0011</p>
+</li>
+<li><p>最后转换 int 值(int 值本身也是 32 位)</p>
+</li>
+<li><p>取到 map 的长度 - 1 转换 2 进制 和 上面的值做与运算</p>
+</li>
+</ol>
+<p>比如 16 长度的 map 16 - 1<br> 0000 0000 0000 0000 0000 0000 0000 1111<br> 1111 1111 1111 1111 0000 0101 1000 0011</p>
+<p>这样做的目的是 ，16 做完了二进制 高位全是 0<br> 而 map 的长度不会很大最多是后 16 位有值，<br>这样一来，高位基本不做运算。</p>
+<p>而第一步做的异或运算是为了在这一步。因为这里与运算基本是后 16 位在做运算<br>很有可能后 16 位的值一样导致 hash 冲突。<br>所以高 16 位与低 16 位做异或可以同时保留 高位与低位的特征，减少 hash 冲突。`</p>
+<hr>
+<h4 id="hash-冲突如何解决"><a href="#hash-冲突如何解决" class="headerlink" title="hash 冲突如何解决"></a>hash 冲突如何解决</h4><p>1.7 之前为数组+链表<br>1.8 以后 hashMap 处理冲突有两种方式，链表 O(n)与红黑树 O(log n)。<br><a href="HashMap/13de3a30.png"></a><br>当 hash 运算时，会存在俩个或两个以上元素取模到同一数组下标中去。<br>最开始会采用链表的形式将多个元素挂在到同一下标，当链表长度达到一定量（大于 8），会转换为红黑树。<br>为什么要转换红黑树？<br>当 map 在 get 元素时，发现是链表，这时需要遍历链表去取出元素，最坏情况下时间复杂度为 O(n)<br>而红黑树遍历找元素的复杂度为 O(log n)</p>
+<h3 id="HashMap-的扩容"><a href="#HashMap-的扩容" class="headerlink" title="HashMap 的扩容"></a>HashMap 的扩容</h3><p>初始值:16<br>扩容因子:0.75<br>初始数组大小为 16,当数组元素达到<code>数组长度*0.75</code>时，扩容两倍。</p>
+<hr>
+<p>判断二进制结果中是否多出一个 bit 的 1， 如果没有多 ，那么就是原来的 index<br>如果多了，就是 index+oldcap，通过这个方式，避免了 rehash 的时候用每个 hash 对新数组取保，取模性能不高，位运算性能比较高</p>
+<p>比如</p>
+<p><img src="/ppy.github.io/.io//f2aeb9d3.png" alt="Image text"></p>
+<p>1111 = 15<br>11111 = 31<br>如果长度发生变化，则 index 与 长度 进行 或 运算，得到新位置下标</p>
+<h4 id="设定初始值容量"><a href="#设定初始值容量" class="headerlink" title="设定初始值容量"></a>设定初始值容量</h4><p>new HashMap()，如果传入初始值 k，则初始化大小为 <code>大于k的2的整次方</code>，例如传 10，大小为 16</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">tableSizeFor</span><span class="token punctuation">(</span><span class="token keyword">int</span> cap<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> n <span class="token operator">=</span> cap <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  n <span class="token operator">|=</span> n <span class="token operator">>>></span> <span class="token number">1</span><span class="token punctuation">;</span>
+  n <span class="token operator">|=</span> n <span class="token operator">>>></span> <span class="token number">2</span><span class="token punctuation">;</span>
+  n <span class="token operator">|=</span> n <span class="token operator">>>></span> <span class="token number">4</span><span class="token punctuation">;</span>
+  n <span class="token operator">|=</span> n <span class="token operator">>>></span> <span class="token number">8</span><span class="token punctuation">;</span>
+  n <span class="token operator">|=</span> n <span class="token operator">>>></span> <span class="token number">16</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>n <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">1</span> <span class="token operator">:</span> <span class="token punctuation">(</span>n <span class="token operator">>=</span> MAXIMUM_CAPACITY<span class="token punctuation">)</span> <span class="token operator">?</span> MAXIMUM_CAPACITY <span class="token operator">:</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h2><p>1.8 以前 多个数组，分段加锁，一个数组一个锁，<br>1.8 以后 优化细粒度，一个数组，每个元素进行 cas，如果失败了说明有人，此时 synchronized 对数组元素加锁，链表+红黑树处理，对数组的每个元素 cas 加锁，</p>
+<p>hashMap 底层是一个大数组</p>
+<p>1.7 及以前 分段<br>[数组 1][数组2] [数组 3] 每个数组对应一个锁</p>
+<p>多个线程过来 线程 1 对数组 1[5] 线程 2 对数组 2[25]，加的不是同一把锁</p>
+<p>1.8 以后，锁粒度细化，[一个大数组]，每个元素进行 put 都是一个不同的锁，采用 CAS 策略。</p>
+<p>比如俩个人同时对[5] put，这时失败了，就需要在这个位置基于链表+红黑树进行处理，加 synchronized 对数组[5],基于红黑树或者是链表在这个位置插进去自己的数据（为什么要用链表加红黑树，和 hashMap 的 hash 碰撞有关，当发生 hash 碰撞，会把元素插在同一数组上，用链表的形式，链表达到一定程度就会变为红黑树方式）</p>
 
             </div>
             <hr/>
@@ -517,7 +546,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://pandaspace.github.io/ppy.github.io/2020/05/24/markdown/">https://pandaspace.github.io/ppy.github.io/2020/05/24/markdown/</a>
+                    <a href="https://pandaspace.github.io/ppy.github.io/2020/05/24/HashMap/">https://pandaspace.github.io/ppy.github.io/2020/05/24/HashMap/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -554,15 +583,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/ppy.github.io/tags/markdown/">
-                                    <span class="chip bg-color">markdown</span>
-                                </a>
-                            
-                                <a href="/ppy.github.io/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -636,9 +657,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/ppy.github.io/2020/05/24/HashMap/">
                     <div class="card-image">
@@ -656,9 +678,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -667,6 +689,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -677,23 +700,20 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/ppy.github.io/2020/05/24/algorithm/">
+                <a href="/ppy.github.io/2020/05/24/markdown/">
                     <div class="card-image">
                         
                         
-                        <img src="/ppy.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="算法">
+                        <img src="/ppy.github.io/medias/featureimages/1.jpg" class="responsive-img" alt="hexo、markdown用法">
                         
-                        <span class="card-title">算法</span>
+                        <span class="card-title">hexo、markdown用法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            数组展平二维数组展平展平一个数组，数组最多二维[[1,2],[3,4]] =&gt; [1,2,3,4]
-function flatten(arr){
-  return [].concat(...arr)
-}
-let arr = [[1,2
+                            Markdown语法中输入数学公式（MathJax）及特殊符号Hexo+github搭建博客(超级详细版，精细入微)
+
                         
                     </div>
                     <div class="publish-info">
@@ -704,8 +724,8 @@ let arr = [[1,2
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/ppy.github.io/categories/javascript/" class="post-category">
-                                    javascript
+                            <a href="/ppy.github.io/categories/markdown/" class="post-category">
+                                    markdown
                                 </a>
                             
                             
@@ -715,12 +735,12 @@ let arr = [[1,2
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/ppy.github.io/tags/javascript/">
-                        <span class="chip bg-color">javascript</span>
+                    <a href="/ppy.github.io/tags/markdown/">
+                        <span class="chip bg-color">markdown</span>
                     </a>
                     
-                    <a href="/ppy.github.io/tags/javascript%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">javascript算法</span>
+                    <a href="/ppy.github.io/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
                     </a>
                     
                 </div>
