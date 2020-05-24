@@ -6,7 +6,7 @@
   <link href="/ppy.github.io/atom.xml" rel="self"/>
   
   <link href="https://pandaspace.github.io/"/>
-  <updated>2020-05-24T18:54:57.528Z</updated>
+  <updated>2020-05-24T18:56:52.802Z</updated>
   <id>https://pandaspace.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://pandaspace.github.io/2020/05/25/vue-toast/"/>
     <id>https://pandaspace.github.io/2020/05/25/vue-toast/</id>
     <published>2020-05-24T18:37:54.000Z</published>
-    <updated>2020-05-24T18:54:57.528Z</updated>
+    <updated>2020-05-24T18:56:52.802Z</updated>
     
     <summary type="html">
     
@@ -40,7 +40,7 @@
       <category term="vue" scheme="https://pandaspace.github.io/categories/vue/"/>
     
     
-      <category term="javascript" scheme="https://pandaspace.github.io/tags/javascript/"/>
+      <category term="Javascript" scheme="https://pandaspace.github.io/tags/Javascript/"/>
     
       <category term="vue" scheme="https://pandaspace.github.io/tags/vue/"/>
     
@@ -203,7 +203,7 @@
     <link href="https://pandaspace.github.io/2020/05/24/algorithm/"/>
     <id>https://pandaspace.github.io/2020/05/24/algorithm/</id>
     <published>2020-05-24T08:22:05.000Z</published>
-    <updated>2020-05-24T15:16:34.146Z</updated>
+    <updated>2020-05-24T18:56:54.111Z</updated>
     
     <summary type="html">
     
@@ -222,8 +222,6 @@
     
     
       <category term="Javascript" scheme="https://pandaspace.github.io/tags/Javascript/"/>
-    
-      <category term="Javascript算法" scheme="https://pandaspace.github.io/tags/Javascript%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
