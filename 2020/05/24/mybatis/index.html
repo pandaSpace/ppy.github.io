@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="HashMap, gongchenghui,github">
+    <meta name="keywords" content="Mybatis, gongchenghui,github">
     <meta name="description" content="北冥有鱼，其名为鲲，鲲之大，不知其几千里也； 化而为鸟，其名为鹏.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>HashMap | Ppy</title>
+    <title>Mybatis | Ppy</title>
     <link rel="icon" type="image/png" href="/ppy.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/ppy.github.io/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/ppy.github.io/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/ppy.github.io/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">HashMap</h1>
+                    <h1 class="description center-align post-title">Mybatis</h1>
                 </div>
             </div>
         </div>
@@ -431,12 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/ppy.github.io/tags/HashMap/">
-                                <span class="chip bg-color">HashMap</span>
-                            </a>
-                        
                             <a href="/ppy.github.io/tags/Java/">
                                 <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/ppy.github.io/tags/Mybatis/">
+                                <span class="chip bg-color">Mybatis</span>
                             </a>
                         
                     </div>
@@ -447,8 +447,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/ppy.github.io/categories/Java/" class="post-category">
-                                Java
+                            <a href="/ppy.github.io/categories/Mybatis/" class="post-category">
+                                Mybatis
                             </a>
                         
                     </div>
@@ -469,14 +469,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    8 分
                 </div>
                 
 
@@ -491,53 +491,302 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><p>hashMap 底层数据结构：<code>数组</code><br><code>map.put(&quot;张三&quot;,xx)</code><br>对 key 计算得到 hash，然后对 hash 值进行取模，定位到数组中的某下标中去。<br> [&lt;张三，测试数据&gt;，&lt;李四，测试数据&gt;]</p>
-<h3 id="HashMap-怎么进行优化的"><a href="#HashMap-怎么进行优化的" class="headerlink" title="HashMap 怎么进行优化的"></a>HashMap 怎么进行优化的</h3><h4 id="寻址算法优化"><a href="#寻址算法优化" class="headerlink" title="寻址算法优化"></a>寻址算法优化</h4><p>数据在插入前，进行一个 hash 计算。<br>高位右移 16 位，与原数进行异或计算,目的为了保留高位与低位的特征，减少 hash 冲突。<br>再与数组长度 n - 1 进行与运算，例如 16,16 转换为二进制 高位全为 0，与其进行与运算，高位部分的运算可忽略。</p>
-<pre class=" language-Java"><code class="language-Java">static final int hash(Object key) {
-        int h;
-        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
-    }</code></pre>
-<p>步骤：</p>
-<hr>
-<ol>
-<li><p>取到 key 的 hash 值，32 位二进制数<br><code>1111 1111 1111 1111 1111 1010 0111 1100</code></p>
-</li>
-<li><p>右移 16 位，高位 0 补齐<br><code>0000 0000 0000 00001111 1111 1111 1111</code></p>
-</li>
-<li><p>异或运算，同位数字相同得到 0，不同则<br>1111 1111 1111 1111 1111 1010 0111 1100<br>0000 0000 0000 0000 1111 1111 1111 1111<br>得:1111 1111 1111 1111 0000 0101 1000 0011</p>
-</li>
-<li><p>最后转换 int 值(int 值本身也是 32 位)</p>
-</li>
-<li><p>取到 map 的长度 - 1 转换 2 进制 和 上面的值做与运算</p>
-</li>
+                <h2 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h2><p>mybatis 是一个 ORM 框架。</p>
+<h3 id="为什么用-Mybatis"><a href="#为什么用-Mybatis" class="headerlink" title="为什么用 Mybatis"></a>为什么用 Mybatis</h3><ol>
+<li>jdbc:<br>jdbc 没有连接池的,而连接数据库操作资源非常的宝贵</li>
+<li>sql:<br>sql 注入, # $替换。</li>
 </ol>
-<p>比如 16 长度的 map 16 - 1<br> 0000 0000 0000 0000 0000 0000 0000 1111<br> 1111 1111 1111 1111 0000 0101 1000 0011</p>
-<p>这样做的目的是 ，16 做完了二进制 高位全是 0<br> 而 map 的长度不会很大最多是后 16 位有值，<br>这样一来，高位基本不做运算。</p>
-<p>而第一步做的异或运算是为了在这一步。因为这里与运算基本是后 16 位在做运算<br>很有可能后 16 位的值一样导致 hash 冲突。<br>所以高 16 位与低 16 位做异或可以同时保留 高位与低位的特征，减少 hash 冲突。`</p>
-<hr>
-<h4 id="hash-冲突如何解决"><a href="#hash-冲突如何解决" class="headerlink" title="hash 冲突如何解决"></a>hash 冲突如何解决</h4><p>1.7 之前为数组+链表<br>1.8 以后 hashMap 处理冲突有两种方式，链表 O(n)与红黑树 O(log n)。<br><img src="/ppy.github.io/2020/05/24/HashMap/13de3a30.png" alt><br>当 hash 运算时，会存在俩个或两个以上元素取模到同一数组下标中去。<br>最开始会采用链表的形式将多个元素挂在到同一下标，当链表长度达到一定量（大于 8），会转换为红黑树。<br>为什么要转换红黑树？<br>当 map 在 get 元素时，发现是链表，这时需要遍历链表去取出元素，最坏情况下时间复杂度为 O(n)<br>而红黑树遍历找元素的复杂度为 O(log n)</p>
-<h3 id="HashMap-的扩容"><a href="#HashMap-的扩容" class="headerlink" title="HashMap 的扩容"></a>HashMap 的扩容</h3><p>初始值:16<br>扩容因子:0.75<br>初始数组大小为 16,当数组元素达到<code>数组长度*0.75</code>时，扩容两倍。</p>
-<hr>
-<p>判断二进制结果中是否多出一个 bit 的 1， 如果没有多 ，那么就是原来的 index<br>如果多了，就是 index+oldcap，通过这个方式，避免了 rehash 的时候用每个 hash 对新数组取保，取模性能不高，位运算性能比较高</p>
-<p>比如</p>
-<p><img src="/ppy.github.io/2020/05/24/HashMap/f2aeb9d3.png" alt></p>
-<p>1111 = 15<br>11111 = 31<br>如果长度发生变化，则 index 与 长度 进行 或 运算，得到新位置下标</p>
-<h4 id="设定初始值容量"><a href="#设定初始值容量" class="headerlink" title="设定初始值容量"></a>设定初始值容量</h4><p>new HashMap()，如果传入初始值 k，则初始化大小为 <code>大于k的2的整次方</code>，例如传 10，大小为 16</p>
-<pre class=" language-Java"><code class="language-Java">static final int tableSizeFor(int cap) {
-  int n = cap - 1;
-  n |= n >>> 1;
-  n |= n >>> 2;
-  n |= n >>> 4;
-  n |= n >>> 8;
-  n |= n >>> 16;
-  return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
+<h3 id="技术本质"><a href="#技术本质" class="headerlink" title="技术本质"></a>技术本质</h3><h4 id="如何获取数据源"><a href="#如何获取数据源" class="headerlink" title="如何获取数据源"></a>如何获取数据源</h4><p>1.org.apache.ibatis.session.SqlSessionFactoryBuilder#build(java.io.InputStream, java.lang.String, java.util.Properties)去解析 config.xml</p>
+<pre class=" language-Java"><code class="language-Java">public Configuration parse() {
+    //如果已经解析过了，报错
+    if (parsed) {
+      throw new BuilderException("Each XMLConfigBuilder can only be used once.");
+    }
+    parsed = true;
+//  <?xml version="1.0" encoding="UTF-8" ?>
+//  <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+//  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+//  <configuration>
+//  <environments default="development">
+//  <environment id="development">
+//  <transactionManager type="JDBC">
+//  <dataSource type="POOLED">
+//  <property name="driver" value="${driver}">
+//  <property name="url" value="${url}">
+//  <property name="username" value="${username}">
+//  <property name="password" value="${password}">
+//  </property></property></property></property></dataSource>
+//  </transactionManager></environment>
+//  </environments>
+//  <mappers>
+//  <mapper resource="org/mybatis/example/BlogMapper.xml">
+//  </mapper></mappers>
+//  </configuration>
+
+    //根节点是configuration
+    parseConfiguration(parser.evalNode("/configuration"));
+    return configuration;
+  }</code></pre>
+<p>2.org.apache.ibatis.builder.xml.XMLConfigBuilder#parseConfiguration<br>解析 xml 各个节点， 将配置 xml(连接串、用户名密码)加载到内存中</p>
+<pre class=" language-Java"><code class="language-Java">//解析配置
+  private void parseConfiguration(XNode root) {
+    try {
+      //分步骤解析
+      //issue #117 read properties first
+      //1.properties
+      propertiesElement(root.evalNode("properties"));
+      //2.类型别名
+      typeAliasesElement(root.evalNode("typeAliases"));
+      //3.插件
+      pluginElement(root.evalNode("plugins"));
+      //4.对象工厂
+      objectFactoryElement(root.evalNode("objectFactory"));
+      //5.对象包装工厂
+      objectWrapperFactoryElement(root.evalNode("objectWrapperFactory"));
+      //6.设置
+      settingsElement(root.evalNode("settings"));
+      // read it after objectFactory and objectWrapperFactory issue #631
+      //7.环境
+      environmentsElement(root.evalNode("environments"));
+      //8.databaseIdProvider
+      databaseIdProviderElement(root.evalNode("databaseIdProvider"));
+      //9.类型处理器
+      typeHandlerElement(root.evalNode("typeHandlers"));
+      //10.映射器
+      mapperElement(root.evalNode("mappers"));
+    } catch (Exception e) {
+      throw new BuilderException("Error parsing SQL Mapper Configuration. Cause: " + e, e);
+    }
+  }
+</code></pre>
+<h4 id="如何获取执行-sql"><a href="#如何获取执行-sql" class="headerlink" title="如何获取执行 sql"></a>如何获取执行 sql</h4><p>2.2 org.apache.ibatis.builder.xml.XMLConfigBuilder#mapperElement<br> 解析 mapper 节点。 有 resource，url，class，package 等方式，优先解析 package(根据包目录扫描 mapper 文件)。<br> 这段代码 if 判断的很差劲，可以用策略模式解决。<br> 此处将所有 mapper 中 curd 方法解析到内存中了。</p>
+<pre class=" language-Java"><code class="language-Java">// 10.4自动扫描包下所有映射器
+// <mappers>
+// <package name="org.mybatis.builder">
+// </package></mappers>
+ private void mapperElement(XNode parent) throws Exception {
+   if (parent != null) {
+     for (XNode child : parent.getChildren()) {
+       if ("package".equals(child.getName())) {
+         //10.4自动扫描包下所有映射器
+         String mapperPackage = child.getStringAttribute("name");
+         configuration.addMappers(mapperPackage);
+       } else {
+         String resource = child.getStringAttribute("resource");
+         String url = child.getStringAttribute("url");
+         String mapperClass = child.getStringAttribute("class");
+         if (resource != null && url == null && mapperClass == null) {
+           //10.1使用类路径
+           ErrorContext.instance().resource(resource);
+           InputStream inputStream = Resources.getResourceAsStream(resource);
+           //映射器比较复杂，调用XMLMapperBuilder
+           //注意在for循环里每个mapper都重新new一个XMLMapperBuilder，来解析
+           XMLMapperBuilder mapperParser = new XMLMapperBuilder(inputStream, configuration, resource, configuration.getSqlFragments());
+           mapperParser.parse();
+         } else if (resource == null && url != null && mapperClass == null) {
+           //10.2使用绝对url路径
+           ErrorContext.instance().resource(url);
+           InputStream inputStream = Resources.getUrlAsStream(url);
+           //映射器比较复杂，调用XMLMapperBuilder
+           XMLMapperBuilder mapperParser = new XMLMapperBuilder(inputStream, configuration, url, configuration.getSqlFragments());
+           mapperParser.parse();
+         } else if (resource == null && url == null && mapperClass != null) {
+           //10.3使用java类名
+           Class<?> mapperInterface = Resources.classForName(mapperClass);
+           //直接把这个映射加入配置
+           configuration.addMapper(mapperInterface);
+         } else {
+           throw new BuilderException("A mapper element may only specify a url, resource or class, but not more than one.");
+         }
+       }
+     }
+   }
+ }
+
+</code></pre>
+<p>3.org.apache.ibatis.builder.annotation.MapperAnnotationBuilder#parseStatement<br>解析 mapper 文件。包含主键生成过程。</p>
+<pre class=" language-Java"><code class="language-Java">void parseStatement(Method method) {
+    Class<?> parameterTypeClass = getParameterType(method);
+    LanguageDriver languageDriver = getLanguageDriver(method);
+    SqlSource sqlSource = getSqlSourceFromAnnotations(method, parameterTypeClass, languageDriver);
+    if (sqlSource != null) {
+      Options options = method.getAnnotation(Options.class);
+      final String mappedStatementId = type.getName() + "." + method.getName();
+      Integer fetchSize = null;
+      Integer timeout = null;
+      StatementType statementType = StatementType.PREPARED;
+      ResultSetType resultSetType = ResultSetType.FORWARD_ONLY;
+      SqlCommandType sqlCommandType = getSqlCommandType(method);
+      boolean isSelect = sqlCommandType == SqlCommandType.SELECT;
+      boolean flushCache = !isSelect;
+      boolean useCache = isSelect;
+
+      KeyGenerator keyGenerator;
+      String keyProperty = "id";
+      String keyColumn = null;
+      if (SqlCommandType.INSERT.equals(sqlCommandType) || SqlCommandType.UPDATE.equals(sqlCommandType)) {
+        // first check for SelectKey annotation - that overrides everything else
+        SelectKey selectKey = method.getAnnotation(SelectKey.class);
+        if (selectKey != null) {
+          keyGenerator = handleSelectKeyAnnotation(selectKey, mappedStatementId, getParameterType(method), languageDriver);
+          keyProperty = selectKey.keyProperty();
+        } else if (options == null) {
+          keyGenerator = configuration.isUseGeneratedKeys() ? new Jdbc3KeyGenerator() : new NoKeyGenerator();
+        } else {
+          keyGenerator = options.useGeneratedKeys() ? new Jdbc3KeyGenerator() : new NoKeyGenerator();
+          keyProperty = options.keyProperty();
+          keyColumn = options.keyColumn();
+        }
+      } else {
+        keyGenerator = new NoKeyGenerator();
+      }
+
+      if (options != null) {
+        flushCache = options.flushCache();
+        useCache = options.useCache();
+        fetchSize = options.fetchSize() > -1 || options.fetchSize() == Integer.MIN_VALUE ? options.fetchSize() : null; //issue #348
+        timeout = options.timeout() > -1 ? options.timeout() : null;
+        statementType = options.statementType();
+        resultSetType = options.resultSetType();
+      }
+
+      String resultMapId = null;
+      ResultMap resultMapAnnotation = method.getAnnotation(ResultMap.class);
+      if (resultMapAnnotation != null) {
+        String[] resultMaps = resultMapAnnotation.value();
+        StringBuilder sb = new StringBuilder();
+        for (String resultMap : resultMaps) {
+          if (sb.length() > 0) {
+            sb.append(",");
+          }
+          sb.append(resultMap);
+        }
+        resultMapId = sb.toString();
+      } else if (isSelect) {
+        resultMapId = parseResultMap(method);
+      }
+
+      assistant.addMappedStatement(
+          mappedStatementId,
+          sqlSource,
+          statementType,
+          sqlCommandType,
+          fetchSize,
+          timeout,
+          // ParameterMapID
+          null,
+          parameterTypeClass,
+          resultMapId,
+          getReturnType(method),
+          resultSetType,
+          flushCache,
+          useCache,
+          // TODO issue #577
+          false,
+          keyGenerator,
+          keyProperty,
+          keyColumn,
+          // DatabaseID
+          null,
+          languageDriver,
+          // ResultSets
+          null);
+    }
+  }</code></pre>
+<p>org.apache.ibatis.builder.MapperBuilderAssistant#addMappedStatement(java.lang.String, org.apache.ibatis.mapping.SqlSource, org.apache.ibatis.mapping.StatementType, org.apache.ibatis.mapping.SqlCommandType, java.lang.Integer, java.lang.Integer, java.lang.String, java.lang.Class<?>, java.lang.String, java.lang.Class<?>, org.apache.ibatis.mapping.ResultSetType, boolean, boolean, boolean, org.apache.ibatis.executor.keygen.KeyGenerator, java.lang.String, java.lang.String, java.lang.String, org.apache.ibatis.scripting.LanguageDriver, java.lang.String)<br>这个方法很差劲，入参过多。<br>如何解决？ spring 中 上下文(context) 用来解决这种场景。</p>
+<pre class=" language-Java"><code class="language-Java">//增加映射语句
+  public MappedStatement addMappedStatement(
+      String id,
+      SqlSource sqlSource,
+      StatementType statementType,
+      SqlCommandType sqlCommandType,
+      Integer fetchSize,
+      Integer timeout,
+      String parameterMap,
+      Class<?> parameterType,
+      String resultMap,
+      Class<?> resultType,
+      ResultSetType resultSetType,
+      boolean flushCache,
+      boolean useCache,
+      boolean resultOrdered,
+      KeyGenerator keyGenerator,
+      String keyProperty,
+      String keyColumn,
+      String databaseId,
+      LanguageDriver lang,
+      String resultSets) {
+
+    if (unresolvedCacheRef) {
+      throw new IncompleteElementException("Cache-ref not yet resolved");
+    }
+
+    //为id加上namespace前缀
+    id = applyCurrentNamespace(id, false);
+    //是否是select语句
+    boolean isSelect = sqlCommandType == SqlCommandType.SELECT;
+
+    //又是建造者模式
+    MappedStatement.Builder statementBuilder = new MappedStatement.Builder(configuration, id, sqlSource, sqlCommandType);
+    statementBuilder.resource(resource);
+    statementBuilder.fetchSize(fetchSize);
+    statementBuilder.statementType(statementType);
+    statementBuilder.keyGenerator(keyGenerator);
+    statementBuilder.keyProperty(keyProperty);
+    statementBuilder.keyColumn(keyColumn);
+    statementBuilder.databaseId(databaseId);
+    statementBuilder.lang(lang);
+    statementBuilder.resultOrdered(resultOrdered);
+    statementBuilder.resulSets(resultSets);
+    setStatementTimeout(timeout, statementBuilder);
+
+    //1.参数映射
+    setStatementParameterMap(parameterMap, parameterType, statementBuilder);
+    //2.结果映射
+    setStatementResultMap(resultMap, resultType, resultSetType, statementBuilder);
+    setStatementCache(isSelect, flushCache, useCache, currentCache, statementBuilder);
+
+    MappedStatement statement = statementBuilder.build();
+    //建造好调用configuration.addMappedStatement
+    configuration.addMappedStatement(statement);
+    return statement;
+  }</code></pre>
+<p>org.apache.ibatis.session.Configuration#addMappedStatement ！！！！<br>构建好 sql 文件后放入内存中</p>
+<h4 id="如何做查询及结果返回操作的"><a href="#如何做查询及结果返回操作的" class="headerlink" title="如何做查询及结果返回操作的"></a>如何做查询及结果返回操作的</h4><p>操作分三个: connection、prepareStatement、resultSet<br>底层用了 java 自带的 jdbc 操作的。<br>1、connection</p>
+<pre class=" language-Java"><code class="language-Java">protected Connection getConnection(Log statementLog) throws SQLException {
+    Connection connection = transaction.getConnection();
+    if (statementLog.isDebugEnabled()) {
+      //如果需要打印Connection的日志，返回一个ConnectionLogger(代理模式, AOP思想)
+      return ConnectionLogger.newInstance(connection, statementLog, queryStack);
+    } else {
+      return connection;
+    }
 }</code></pre>
-<h2 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h2><p>1.8 以前 多个数组，分段加锁，一个数组一个锁，<br>1.8 以后 优化细粒度，一个数组，每个元素进行 cas，如果失败了说明有人，此时 synchronized 对数组元素加锁，链表+红黑树处理，对数组的每个元素 cas 加锁，</p>
-<p>hashMap 底层是一个大数组</p>
-<p>1.7 及以前 分段<br>[数组 1][数组2] [数组 3] 每个数组对应一个锁</p>
-<p>多个线程过来 线程 1 对数组 1[5] 线程 2 对数组 2[25]，加的不是同一把锁</p>
-<p>1.8 以后，锁粒度细化，[一个大数组]，每个元素进行 put 都是一个不同的锁，采用 CAS 策略。</p>
-<p>比如俩个人同时对[5] put，这时失败了，就需要在这个位置基于链表+红黑树进行处理，加 synchronized 对数组[5],基于红黑树或者是链表在这个位置插进去自己的数据（为什么要用链表加红黑树，和 hashMap 的 hash 碰撞有关，当发生 hash 碰撞，会把元素插在同一数组上，用链表的形式，链表达到一定程度就会变为红黑树方式）</p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>1.mapper 加载文件方式有几种？优先级如何？<br>有 resource，url，class，package 等方式，优先解析 package(根据包目录扫描 mapper 文件)。<br>2.mybatis 执行器有几种？ 默认是哪个？<br>三种：<br>SIMPLE：这个执行器类型不做特殊的事情。它为每个语句的执行创建一个新的预处理语句。<br>REUSE：这个执行器类型会复用预处理语句。<br>BATCH：这个执行器会批量执行所有更新语句，如果 SELECT 在它们中间执行还会标定它们是必须的，来保证一个简单并易于理解的行为。</p>
+<p>默认使用 SIMPLE。<br>3.mybatis 一级缓存默认开启还是关闭？<br>默认是开启的<br>3.1 缓存怎么用的？<br>//默认情况下是没有开启缓存的(二级缓存).要开启二级缓存,你需要在你的 SQL 映射文件中添加一行: &lt;cache/&gt;<br>//简单的说，就是先查 CacheKey，查不到再委托给实际的执行器去查<br>org.apache.ibatis.executor.CachingExecutor#query(org.apache.ibatis.mapping.MappedStatement, java.lang.Object, org.apache.ibatis.session.RowBounds, org.apache.ibatis.session.ResultHandler, org.apache.ibatis.cache.CacheKey, org.apache.ibatis.mapping.BoundSql)</p>
+<pre class=" language-Java"><code class="language-Java">//被ResultLoader.selectList调用
+  @Override
+  public <E> List<E> query(MappedStatement ms, Object parameterObject, RowBounds rowBounds, ResultHandler resultHandler, CacheKey key, BoundSql boundSql)
+      throws SQLException {
+    Cache cache = ms.getCache();
+    //默认情况下是没有开启缓存的(二级缓存).要开启二级缓存,你需要在你的 SQL 映射文件中添加一行: <cache>
+    //简单的说，就是先查CacheKey，查不到再委托给实际的执行器去查
+    if (cache != null) {
+      flushCacheIfRequired(ms);
+      if (ms.isUseCache() && resultHandler == null) {
+        ensureNoOutParams(ms, parameterObject, boundSql);
+        @SuppressWarnings("unchecked")
+        List<E> list = (List<E>) tcm.getObject(cache, key);
+        if (list == null) {
+          list = delegate.<E> query(ms, parameterObject, rowBounds, resultHandler, key, boundSql);
+          tcm.putObject(cache, key, list); // issue #578 and #116
+        }
+        return list;
+      }
+    }
+    return delegate.<E> query(ms, parameterObject, rowBounds, resultHandler, key, boundSql);
+  }</E></E></E></E></cache></E></E></code></pre>
+<h3 id="什么是-ORM"><a href="#什么是-ORM" class="headerlink" title="什么是 ORM"></a>什么是 ORM</h3><p>Object Relational Mapping<br>用于实现面向对象编程语言里不同类型系统的数据之间的转换。<br>简单来说 ，java 语言有自己的数据灵性 int 、 long 、string。 sql 也有自己的类型 varchar int、bigint 等。orm 将不同类型系统间数据做一个转换。</p>
 
             </div>
             <hr/>
@@ -563,7 +812,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://pandaspace.github.io/ppy.github.io/2020/05/24/HashMap/">https://pandaspace.github.io/ppy.github.io/2020/05/24/HashMap/</a>
+                    <a href="https://pandaspace.github.io/ppy.github.io/2020/05/24/mybatis/">https://pandaspace.github.io/ppy.github.io/2020/05/24/mybatis/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -601,12 +850,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/ppy.github.io/tags/HashMap/">
-                                    <span class="chip bg-color">HashMap</span>
-                                </a>
-                            
                                 <a href="/ppy.github.io/tags/Java/">
                                     <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/ppy.github.io/tags/Mybatis/">
+                                    <span class="chip bg-color">Mybatis</span>
                                 </a>
                             
                         </div>
@@ -682,9 +931,69 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/ppy.github.io/2020/05/24/mybatis/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/ppy.github.io/medias/featureimages/5.jpg" class="responsive-img" alt="Mybatis">
+                        
+                        <span class="card-title">Mybatis</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Mybatismybatis 是一个 ORM 框架。
+为什么用 Mybatis
+jdbc:jdbc 没有连接池的,而连接数据库操作资源非常的宝贵
+sql:sql 注入, # $替换。
+
+技术本质如何获取数据源1.org.apache.iba
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/ppy.github.io/categories/Mybatis/" class="post-category">
+                                    Mybatis
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/ppy.github.io/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/ppy.github.io/tags/Mybatis/">
+                        <span class="chip bg-color">Mybatis</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/ppy.github.io/2020/05/24/redis/">
                     <div class="card-image">
@@ -704,9 +1013,9 @@ Redis 的单线程Redis 内有一个处理计算等请求的工作线程，保�
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -728,60 +1037,6 @@ Redis 的单线程Redis 内有一个处理计算等请求的工作线程，保�
                     
                     <a href="/ppy.github.io/tags/Redis/">
                         <span class="chip bg-color">Redis</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/ppy.github.io/2020/05/24/markdown/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/ppy.github.io/medias/featureimages/1.jpg" class="responsive-img" alt="hexo、markdown用法">
-                        
-                        <span class="card-title">hexo、markdown用法</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Markdown 语法中输入数学公式（MathJax）及特殊符号Hexo+github 搭建博客(超级详细版，精细入微)
-
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/ppy.github.io/categories/markdown/" class="post-category">
-                                    markdown
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/ppy.github.io/tags/Markdown/">
-                        <span class="chip bg-color">Markdown</span>
-                    </a>
-                    
-                    <a href="/ppy.github.io/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
                     </a>
                     
                 </div>

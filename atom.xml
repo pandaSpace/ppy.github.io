@@ -6,7 +6,7 @@
   <link href="/ppy.github.io/atom.xml" rel="self"/>
   
   <link href="https://pandaspace.github.io/"/>
-  <updated>2020-05-24T15:04:44.484Z</updated>
+  <updated>2020-05-24T15:08:58.712Z</updated>
   <id>https://pandaspace.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mybatis</title>
+    <link href="https://pandaspace.github.io/2020/05/24/mybatis/"/>
+    <id>https://pandaspace.github.io/2020/05/24/mybatis/</id>
+    <published>2020-05-24T15:06:23.000Z</published>
+    <updated>2020-05-24T15:08:58.712Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Mybatis&quot;&gt;&lt;a href=&quot;#Mybatis&quot; class=&quot;headerlink&quot; title=&quot;Mybatis&quot;&gt;&lt;/a&gt;Mybatis&lt;/h2&gt;&lt;p&gt;mybatis 是一个 ORM 框架。&lt;/p&gt;
+&lt;h3 id=&quot;为什么用-Mybatis&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Mybatis" scheme="https://pandaspace.github.io/categories/Mybatis/"/>
+    
+    
+      <category term="Java" scheme="https://pandaspace.github.io/tags/Java/"/>
+    
+      <category term="Mybatis" scheme="https://pandaspace.github.io/tags/Mybatis/"/>
+    
+  </entry>
   
   <entry>
     <title>Redis</title>
