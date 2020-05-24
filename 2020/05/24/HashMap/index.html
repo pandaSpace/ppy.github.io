@@ -498,12 +498,12 @@
 <p>这样做的目的是 ，16 做完了二进制 高位全是 0<br> 而 map 的长度不会很大最多是后 16 位有值，<br>这样一来，高位基本不做运算。</p>
 <p>而第一步做的异或运算是为了在这一步。因为这里与运算基本是后 16 位在做运算<br>很有可能后 16 位的值一样导致 hash 冲突。<br>所以高 16 位与低 16 位做异或可以同时保留 高位与低位的特征，减少 hash 冲突。`</p>
 <hr>
-<h4 id="hash-冲突如何解决"><a href="#hash-冲突如何解决" class="headerlink" title="hash 冲突如何解决"></a>hash 冲突如何解决</h4><p>1.7 之前为数组+链表<br>1.8 以后 hashMap 处理冲突有两种方式，链表 O(n)与红黑树 O(log n)。<br><a href="HashMap/13de3a30.png"></a><br>当 hash 运算时，会存在俩个或两个以上元素取模到同一数组下标中去。<br>最开始会采用链表的形式将多个元素挂在到同一下标，当链表长度达到一定量（大于 8），会转换为红黑树。<br>为什么要转换红黑树？<br>当 map 在 get 元素时，发现是链表，这时需要遍历链表去取出元素，最坏情况下时间复杂度为 O(n)<br>而红黑树遍历找元素的复杂度为 O(log n)</p>
+<h4 id="hash-冲突如何解决"><a href="#hash-冲突如何解决" class="headerlink" title="hash 冲突如何解决"></a>hash 冲突如何解决</h4><p>1.7 之前为数组+链表<br>1.8 以后 hashMap 处理冲突有两种方式，链表 O(n)与红黑树 O(log n)。<br><img src="/ppy.github.io/2020/05/24/HashMap/13de3a30.png" alt><br>当 hash 运算时，会存在俩个或两个以上元素取模到同一数组下标中去。<br>最开始会采用链表的形式将多个元素挂在到同一下标，当链表长度达到一定量（大于 8），会转换为红黑树。<br>为什么要转换红黑树？<br>当 map 在 get 元素时，发现是链表，这时需要遍历链表去取出元素，最坏情况下时间复杂度为 O(n)<br>而红黑树遍历找元素的复杂度为 O(log n)</p>
 <h3 id="HashMap-的扩容"><a href="#HashMap-的扩容" class="headerlink" title="HashMap 的扩容"></a>HashMap 的扩容</h3><p>初始值:16<br>扩容因子:0.75<br>初始数组大小为 16,当数组元素达到<code>数组长度*0.75</code>时，扩容两倍。</p>
 <hr>
 <p>判断二进制结果中是否多出一个 bit 的 1， 如果没有多 ，那么就是原来的 index<br>如果多了，就是 index+oldcap，通过这个方式，避免了 rehash 的时候用每个 hash 对新数组取保，取模性能不高，位运算性能比较高</p>
 <p>比如</p>
-<p><img src="/ppy.github.io/.io//f2aeb9d3.png" alt="Image text"></p>
+<p><img src="/ppy.github.io/2020/05/24/HashMap/f2aeb9d3.png" alt></p>
 <p>1111 = 15<br>11111 = 31<br>如果长度发生变化，则 index 与 长度 进行 或 运算，得到新位置下标</p>
 <h4 id="设定初始值容量"><a href="#设定初始值容量" class="headerlink" title="设定初始值容量"></a>设定初始值容量</h4><p>new HashMap()，如果传入初始值 k，则初始化大小为 <code>大于k的2的整次方</code>，例如传 10，大小为 16</p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">tableSizeFor</span><span class="token punctuation">(</span><span class="token keyword">int</span> cap<span class="token punctuation">)</span> <span class="token punctuation">{</span>
