@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="算法, gongchenghui,github">
+    <meta name="keywords" content="Redis, gongchenghui,github">
     <meta name="description" content="北冥有鱼，其名为鲲，鲲之大，不知其几千里也； 化而为鸟，其名为鹏.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>算法 | Ppy</title>
+    <title>Redis | Ppy</title>
     <link rel="icon" type="image/png" href="/ppy.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/ppy.github.io/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/ppy.github.io/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/ppy.github.io/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">算法</h1>
+                    <h1 class="description center-align post-title">Redis</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/ppy.github.io/tags/Javascript/">
-                                <span class="chip bg-color">Javascript</span>
+                            <a href="/ppy.github.io/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/ppy.github.io/tags/Redis/">
+                                <span class="chip bg-color">Redis</span>
                             </a>
                         
                     </div>
@@ -443,8 +447,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/ppy.github.io/categories/Javascript/" class="post-category">
-                                Javascript
+                            <a href="/ppy.github.io/categories/Java/" class="post-category">
+                                Java
                             </a>
                         
                     </div>
@@ -465,14 +469,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    491
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
 
@@ -487,78 +491,49 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="数组展平"><a href="#数组展平" class="headerlink" title="数组展平"></a>数组展平</h2><h3 id="二维数组展平"><a href="#二维数组展平" class="headerlink" title="二维数组展平"></a>二维数组展平</h3><p>展平一个数组，数组最多二维[[1,2],[3,4]] =&gt; [1,2,3,4]</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">flatten</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token operator">...</span>arr<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
-<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
-<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">[</span>arr<span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span><span class="token punctuation">[</span>arr<span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
-<p>concat() 方法用于连接两个或多个数组。<br>该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。</p>
-<h3 id="多维数组展平-递归"><a href="#多维数组展平-递归" class="headerlink" title="多维数组展平(递归)"></a>多维数组展平(递归)</h3><p>展评一个数组,[[1,2],3,[[[4],5]]] =&gt; [1,2,3,4,5]<br>对数组 ${S}$ = {${a}_1$,${a}_2$,…,${a}_n$},函数${F}$将数组展平<br>${F}({S}) = {F}(a_1)\cup{F}(a_2)\cup…\cup{F}(a_n)$<br>$<br>  F(a_i)=<br>  \begin{cases}<br>  a_i数字 \<br>  F(a_i) 数组<br>  \end{cases}<br>$</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">flatten</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token operator">...</span>arr<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">flatten</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">:</span> x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="函数节流"><a href="#函数节流" class="headerlink" title="函数节流"></a>函数节流</h3><p>添加滚动事件 60ms 响应 1 次</p>
-<pre class=" language-javascript"><code class="language-javascript">document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'scroll'</span><span class="token punctuation">,</span> <span class="token function">throttle</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span>func<span class="token punctuation">,</span> delay <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">let</span> lock <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>lock<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">return</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token function">func</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    lock <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-      lock <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<p>过滤掉重复的验证事件(用户输入停止后 300ms 触发验证)</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span>func<span class="token punctuation">,</span> delay <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">,</span> I <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token function">clearInterval</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    I <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span>func<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// I = setTimeout((...args) => {func(...args)}, delay);</span>
-  <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<h2 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h2><p>柯里化，英语：Currying(果然是满满的英译中的既视感)，是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。</p>
-<p><a href="https://www.jianshu.com/p/2975c25e4d71" target="_blank" rel="noopener">详解 JS 函数柯里化</a></p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> curry <span class="token operator">=</span> <span class="token punctuation">(</span>func<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> g <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">...</span>allArgs<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span>
-    allArgs<span class="token punctuation">.</span>length <span class="token operator">>=</span> func<span class="token punctuation">.</span>length
-      <span class="token operator">?</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token operator">...</span>allArgs<span class="token punctuation">)</span>
-      <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">g</span><span class="token punctuation">(</span><span class="token operator">...</span>allArgs<span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">return</span> g<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token function">curry</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>对于 curry(foo),g 函数参数足够 4 个,就调用 foo(a,b,c,d),如果小于 4 个就返回一个可以继续积累参数的函数</p>
-<h3 id="Y-组合子"><a href="#Y-组合子" class="headerlink" title="Y-组合子"></a>Y-组合子</h3><p>前置知识 lamabda 演算</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> y <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>le<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>f<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token function">f</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>f<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token function">le</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token operator">...</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token function">f</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token operator">...</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> curryY <span class="token operator">=</span> <span class="token punctuation">(</span>func<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span>
-  <span class="token function">y</span><span class="token punctuation">(</span><span class="token punctuation">(</span>g<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token punctuation">(</span><span class="token operator">...</span>allArgs<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-      allArgs<span class="token punctuation">.</span>length <span class="token operator">>=</span> func<span class="token punctuation">.</span>length
-        <span class="token operator">?</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token operator">...</span>allArgs<span class="token punctuation">)</span>
-        <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">g</span><span class="token punctuation">(</span><span class="token operator">...</span>allArgs<span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token function">curryY</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">foo</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-
+                <h2 id="Redis-工作原理"><a href="#Redis-工作原理" class="headerlink" title="Redis 工作原理"></a>Redis 工作原理</h2><p><img src="./images/84f683e2.png" alt></p>
+<h3 id="多路复用"><a href="#多路复用" class="headerlink" title="多路复用"></a>多路复用</h3><p>Redis 在处理客户端请求时采用 IO 多路复用，多路复用只是告诉你，那几个客户端有新消息需要去处理</p>
+<h3 id="Redis-的单线程"><a href="#Redis-的单线程" class="headerlink" title="Redis 的单线程"></a>Redis 的单线程</h3><p>Redis 内有一个处理计算等请求的工作线程，保证所有操作是单线程在进行从而保证了 Redis 的高并发能力。<br>Redis 是基于内存的一个框架，CPU 不会成为 Redis 的瓶颈，Redis 的瓶颈是带宽、内存。</p>
+<h3 id="IO-多线程"><a href="#IO-多线程" class="headerlink" title="IO 多线程"></a>IO 多线程</h3><p><img src="./images/9ba8f8cf.png" alt><br>Redis6.X 以后提供 IO 多线程操作模式，并非默认，需要开启配置。<br>在一步 Redis 操作中分为，IO 读取 -&gt; 计算 -&gt; 写回 IO。<br>为了充分利用 CPU，Redis 将 IO 操作改为多线程。 多线程去读取 IO，读取到后交给工作线程，工作线程处理完后交给多线程 IO。</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>String、List、Hash、Set、Sorted Set(ZSet)</p>
+<h2 id="Redis-缓存穿透"><a href="#Redis-缓存穿透" class="headerlink" title="Redis 缓存穿透"></a>Redis 缓存穿透</h2><p>场景：Redis 作为一款常用的缓存框架，常用于缓存数据库查询结果，将大量请求在缓存层返回。<br>因为数据库能承担的读 qps 是有限的，不做缓存导致大量请求打在数据库中，一旦将数据库打挂，那么整个服务将变为不可用状态。<br>所以有些人，会搞出你数据库不存在的 id 去调用你的接口，那么你发现 redis 没有，到数据库查询，这就叫穿透，穿两层。当请求量级较大，<br>导致数据库承不了最终挂掉。</p>
+<p>解决方案:</p>
+<ol>
+<li><strong>缓存 null 值</strong>。<br>比如说，数据库常见 id 自增，都从从 1 开始，有人就会搞个 -1 作为 id 伪造请求访问你。这时，可以将 null 值保存到 redis 中。<br>优点:防止某个用户反复用同一个 ID 暴力请求。<br>缺点 :<ol>
+<li>如果这个人，伪造随机值甚至说用 uuid，还是会击穿你。</li>
+<li>导致大量无用数据打进 redis，redis 本身有淘汰策略，会把有用的缓存挤掉。</li>
+</ol>
+</li>
+<li><strong>布隆过滤器</strong><br><code>布隆算法说数据存在，他可能不存在。 说数据不存在，他可能存在！（宁可错杀三千，不可放过一个）</code><br><img src="./images/5e9eb999.png" alt><br>底层是一个 bit 数组，key 通过 hash 将某下标置为 1 来表示它存在。 bit 数组占用内存很小的，一百亿才占用 1g 内存。<br> 布隆过滤器是<code>通过一定错误率来换取时间</code> ，<code>hash碰撞会导致一定错误率</code>。<br> 有两种方式减少错误率： 1. <code>加大数组的个数</code> 2. <code>增加Hash函数个数</code><br> <img src="./images/21fa7455.png" alt><br>对同一个 key，用三种不同 Hash 函数去 Hash，放到数组中占三个位置，三个 Hash 值都发生碰撞的概率就降低了。<br> 缺点： 占用空间，比如数组大小一共 10，用了 10 个 Hash 函数，那就直接占满了 10 个数组，这时候错误率就 100%，好在 bit 占用内存不大<br>弊端：删除数据，同一个下标可能标识多个 Hash 过来的结果，不可轻易变为 0.</li>
+</ol>
+<h2 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h2><p>缓存层缓存的数据，在某一时刻突然大批量失效（无法访问），导致大量请求打向数据库<br>缓存雪崩的原因：</p>
+<ol>
+<li>redis 中缓存的数据有效期一致导致的<br>给每条数据加上随机有效期，不要让他们失效时间一致。<code>不要突然同时失效</code></li>
+<li>redis 挂掉了</li>
+</ol>
+<p>分布式缓存 :</p>
+<ol>
+<li>切片集群模式：数据分成小片分布在各个集群</li>
+<li>副本集群模式：每个集群完整存放一份，放的全量数据</li>
+</ol>
+<h2 id="Redis-集群"><a href="#Redis-集群" class="headerlink" title="Redis 集群"></a>Redis 集群</h2><h3 id="集群的-Hash-一致性算法"><a href="#集群的-Hash-一致性算法" class="headerlink" title="集群的 Hash 一致性算法"></a>集群的 Hash 一致性算法</h3><p><img src="./images/fccf1b32.png" alt><br>redis 存放数据时，对 key 进行 Hash 后取模，到某台集群上。<br>比如说有两台，那么就是 Hash(key) % 2, 问题来了, 现在扩容新增了一台，集群数量变为 3，之前的数据怎么办？重新拿出来重新取模吗？<br>Redis 的 Hash 一致性算法就是用来解决这个问题的。<br><img src="./images/0c7dfe74.png" alt><br>一个 2 的 32 次方的 Hash 环，</p>
+<ol>
+<li>Redis 加入环：Hash(ip) % 2^32 到环中位置，</li>
+<li>key 加入环：Hash(key) % 2^32 到环中位置，</li>
+</ol>
+<p>环中 key 按顺时针加入到 Redis 中。<br><img src="./images/563c7eff.png" alt><br>当集群发生改变时，只会影响环中两个 Redis 的数据变更。</p>
+<p>弊端：Hash 倾斜问题，俩个 Redis 在环中距离较近，就会导致某 Redis 存储大量数据，而另一个只存储少部分。<br>解决方式：</p>
+<h4 id="虚拟节点"><a href="#虚拟节点" class="headerlink" title="虚拟节点"></a>虚拟节点</h4><p><img src="./images/8e459f6a.png" alt><br>右侧 redis1 redis2 为真是节点，左侧为映射节点，这样就解决了 Hash 倾斜问题。 如果加入虚拟节点还是不均衡，那就继续添加虚拟节点</p>
+<h2 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h2><p><code>缓存击穿和缓存雪崩的本质都是缓存穿透，是缓存穿透的特殊表现</code><br><code>一条</code>热门数据，在缓存失效，瞬间大量请求打入数据库。</p>
+<p>解决方式：</p>
+<ol>
+<li><p>分布式锁<br>同事见 1w 个请求过来，当发现缓存没数据后，去争夺分<br>布式锁，拿到锁的去库中查询，然后放入缓存，那么剩余的 9999 可在缓存中取到数据。<br><code>这种方式效率低，导致大量请求卡在cpu瞬间升高</code></p>
+</li>
+<li><p>不加分布式锁，从库中请求出来后直接放入缓存<br>一般公司不会采用方案 1，因为量不会怎么大。<br>一般来说 一瞬间 100 个并发同一个 key 已经算是很高的了。<br>所以 100 个请求直接是从库中取，然后放入缓存，那么 第 101 个请求就可以从缓存中读取了。</p>
+</li>
+</ol>
+<h2 id="Redis-分布式锁与-Zookeeper-分布式锁的区别"><a href="#Redis-分布式锁与-Zookeeper-分布式锁的区别" class="headerlink" title="Redis 分布式锁与 Zookeeper 分布式锁的区别"></a>Redis 分布式锁与 Zookeeper 分布式锁的区别</h2><p><img src="./images/87fd9ce7.png" alt><br>zookeeper 有子节点概念，三个 client 同时 lock 创建节点，会顺序排列。<br>没排在 01 上的节点会注册监听事件，监听上一个节点被删除事件，当上一个节点做完了业务后删掉节点，后续节点则依次进行业务。</p>
+<h2 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h2><h3 id="AOF"><a href="#AOF" class="headerlink" title="AOF"></a>AOF</h3><h3 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h3>
             </div>
             <hr/>
 
@@ -583,7 +558,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://pandaspace.github.io/ppy.github.io/2020/05/24/algorithm/">https://pandaspace.github.io/ppy.github.io/2020/05/24/algorithm/</a>
+                    <a href="https://pandaspace.github.io/ppy.github.io/2020/05/24/java/redis/redis/">https://pandaspace.github.io/ppy.github.io/2020/05/24/java/redis/redis/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -621,8 +596,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/ppy.github.io/tags/Javascript/">
-                                    <span class="chip bg-color">Javascript</span>
+                                <a href="/ppy.github.io/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/ppy.github.io/tags/Redis/">
+                                    <span class="chip bg-color">Redis</span>
                                 </a>
                             
                         </div>
@@ -702,20 +681,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/ppy.github.io/2020/05/24/markdown/">
+                <a href="/ppy.github.io/2020/05/24/java/mybatis/">
                     <div class="card-image">
                         
                         
-                        <img src="/ppy.github.io/medias/featureimages/1.jpg" class="responsive-img" alt="hexo、markdown用法">
+                        <img src="/ppy.github.io/medias/featureimages/5.jpg" class="responsive-img" alt="Mybatis">
                         
-                        <span class="card-title">hexo、markdown用法</span>
+                        <span class="card-title">Mybatis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Markdown 语法中输入数学公式（MathJax）及特殊符号Hexo+github 搭建博客(超级详细版，精细入微)Hexo 博客主题之 hexo-theme-matery 的介绍
+                            Mybatismybatis 是一个 ORM 框架。
+为什么用 Mybatis
+jdbc:jdbc 没有连接池的,而连接数据库操作资源非常的宝贵
+sql:sql 注入, # $替换。
 
+技术本质如何获取数据源1.org.apache.iba
                         
                     </div>
                     <div class="publish-info">
@@ -726,8 +709,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/ppy.github.io/categories/markdown/" class="post-category">
-                                    markdown
+                            <a href="/ppy.github.io/categories/Mybatis/" class="post-category">
+                                    Mybatis
                                 </a>
                             
                             
@@ -737,12 +720,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/ppy.github.io/tags/Markdown/">
-                        <span class="chip bg-color">Markdown</span>
+                    <a href="/ppy.github.io/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/ppy.github.io/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/ppy.github.io/tags/Mybatis/">
+                        <span class="chip bg-color">Mybatis</span>
                     </a>
                     
                 </div>
@@ -753,26 +736,22 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/ppy.github.io/2020/05/24/algorithm/">
+                <a href="/ppy.github.io/2020/05/24/java/HashMap/HashMap/">
                     <div class="card-image">
                         
                         
-                        <img src="/ppy.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="算法">
+                        <img src="/ppy.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="HashMap">
                         
-                        <span class="card-title">算法</span>
+                        <span class="card-title">HashMap</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            数组展平二维数组展平展平一个数组，数组最多二维[[1,2],[3,4]] =&gt; [1,2,3,4]
-function flatten(arr){
-  return [].concat(...arr)
-}
-let arr = [[1,2
+                            HashMaphashMap 底层数据结构：数组map.put(&quot;张三&quot;,xx)对 key 计算得到 hash，然后对 hash 值进行取模，定位到数组中的某下标中去。 [&lt;张三，测试数据&gt;，&lt;李四，测
                         
                     </div>
                     <div class="publish-info">
@@ -783,20 +762,23 @@ let arr = [[1,2
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/ppy.github.io/categories/Javascript/" class="post-category">
-                                    Javascript
+                            <a href="/ppy.github.io/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/ppy.github.io/tags/Javascript/">
-                        <span class="chip bg-color">Javascript</span>
+                    <a href="/ppy.github.io/tags/HashMap/">
+                        <span class="chip bg-color">HashMap</span>
+                    </a>
+                    
+                    <a href="/ppy.github.io/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                 </div>
@@ -934,13 +916,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 

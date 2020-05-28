@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vue封装toast组件, gongchenghui,github">
+    <meta name="keywords" content="算法, gongchenghui,github">
     <meta name="description" content="北冥有鱼，其名为鲲，鲲之大，不知其几千里也； 化而为鸟，其名为鹏.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>vue封装toast组件 | Ppy</title>
+    <title>算法 | Ppy</title>
     <link rel="icon" type="image/png" href="/ppy.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/ppy.github.io/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/ppy.github.io/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/ppy.github.io/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vue封装toast组件</h1>
+                    <h1 class="description center-align post-title">算法</h1>
                 </div>
             </div>
         </div>
@@ -435,14 +435,6 @@
                                 <span class="chip bg-color">Javascript</span>
                             </a>
                         
-                            <a href="/ppy.github.io/tags/vue/">
-                                <span class="chip bg-color">vue</span>
-                            </a>
-                        
-                            <a href="/ppy.github.io/tags/toast/">
-                                <span class="chip bg-color">toast</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -451,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/ppy.github.io/categories/vue/" class="post-category">
-                                vue
+                            <a href="/ppy.github.io/categories/Javascript/" class="post-category">
+                                Javascript
                             </a>
                         
                     </div>
@@ -464,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-25
+                    2020-05-24
                 </div>
                 
 
@@ -473,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    279
+                    491
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -495,88 +487,77 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="vue-封装-toast-组件"><a href="#vue-封装-toast-组件" class="headerlink" title="vue 封装 toast 组件"></a>vue 封装 toast 组件</h2><ol>
-<li><p>创建 toast.vue 文件</p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
-  <span class="token comment" spellcheck="true">&lt;!-- 全局提示框 --></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-show</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>visible<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dialog-tips dialog-center<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>{{message}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span>
-<span class="token punctuation">></span></span>
- <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
- <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
- <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-   <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token keyword">return</span> <span class="token punctuation">{</span>
-       visible<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-       message<span class="token punctuation">:</span> <span class="token string">""</span>
-     <span class="token punctuation">}</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
- <span class="token punctuation">}</span><span class="token punctuation">;</span>
- </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
- <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>scss<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
- <span class="token selector"><span class="token class">.dialog-tips</span></span><span class="token punctuation">{</span>
-     <span class="token selector">position: fixed;
-     z-index: 100;
-     min-width: 220px;
-     padding: 40px 22px;
-     white-space: nowrap;
-     background-color: <span class="token id">#fff</span>;
-     box-shadow: 0px 8px 15px 0 rgba(0, 0, 0, 0<span class="token class">.1</span>);
-     text-align: center;
-     <span class="token class">.dialog-tips-icon</span></span><span class="token punctuation">{</span>
-         <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">54</span>px<span class="token punctuation">;</span>
-         <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">54</span>px<span class="token punctuation">;</span>
-         <span class="token atrule"><span class="token rule">@extend</span> %bg-contain<span class="token punctuation">;</span></span>
-         <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
-         <span class="token property">margin-bottom</span><span class="token punctuation">:</span> <span class="token number">13</span>px<span class="token punctuation">;</span>
-     <span class="token punctuation">}</span>
- <span class="token punctuation">}</span>
- <span class="token selector"><span class="token class">.dialog-center</span> </span><span class="token punctuation">{</span>
-     <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">50%</span><span class="token punctuation">;</span>
-     <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">50%</span><span class="token punctuation">;</span>
-     <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>-<span class="token number">50%</span>, -<span class="token number">50%</span><span class="token punctuation">)</span>
- <span class="token punctuation">}</span>
-</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre>
-</li>
-<li><p>创建 toast.js 文件</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">import</span> ToastComponent <span class="token keyword">from</span> <span class="token string">'./toast.vue'</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> Toast <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// 注册 Toast</span>
-Toast<span class="token punctuation">.</span>install <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>Vue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 生成一个 Vue 的子类</span>
-  <span class="token comment" spellcheck="true">// 同时这个子类也就是组件</span>
-  <span class="token keyword">const</span> ToastConstructor <span class="token operator">=</span> Vue<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span>ToastComponent<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">// 生成一个该子类的实例</span>
-  <span class="token keyword">const</span> instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ToastConstructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token comment" spellcheck="true">// 将这个实例挂载在我创建的div上</span>
-  <span class="token comment" spellcheck="true">// 并将此div加入全局挂载点内部</span>
-  instance<span class="token punctuation">.</span><span class="token function">$mount</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>instance<span class="token punctuation">.</span>$el<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token comment" spellcheck="true">// 通过Vue的原型注册一个方法</span>
-  <span class="token comment" spellcheck="true">// 让所有实例共享这个方法</span>
-  Vue<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>$toast <span class="token operator">=</span> <span class="token punctuation">(</span>msg<span class="token punctuation">,</span> duration <span class="token operator">=</span> <span class="token number">1500</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    instance<span class="token punctuation">.</span>message <span class="token operator">=</span> msg<span class="token punctuation">;</span>
-    instance<span class="token punctuation">.</span>visible <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-
+                <h2 id="数组展平"><a href="#数组展平" class="headerlink" title="数组展平"></a>数组展平</h2><h3 id="二维数组展平"><a href="#二维数组展平" class="headerlink" title="二维数组展平"></a>二维数组展平</h3><p>展平一个数组，数组最多二维[[1,2],[3,4]] =&gt; [1,2,3,4]</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">flatten</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token operator">...</span>arr<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">[</span>arr<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span><span class="token punctuation">[</span>arr<span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+<p>concat() 方法用于连接两个或多个数组。<br>该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。</p>
+<h3 id="多维数组展平-递归"><a href="#多维数组展平-递归" class="headerlink" title="多维数组展平(递归)"></a>多维数组展平(递归)</h3><p>展评一个数组,[[1,2],3,[[[4],5]]] =&gt; [1,2,3,4,5]<br>对数组 ${S}$ = {${a}_1$,${a}_2$,…,${a}_n$},函数${F}$将数组展平<br>${F}({S}) = {F}(a_1)\cup{F}(a_2)\cup…\cup{F}(a_n)$<br>$<br>  F(a_i)=<br>  \begin{cases}<br>  a_i数字 \<br>  F(a_i) 数组<br>  \end{cases}<br>$</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">flatten</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token operator">...</span>arr<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">flatten</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">:</span> x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="函数节流"><a href="#函数节流" class="headerlink" title="函数节流"></a>函数节流</h3><p>添加滚动事件 60ms 响应 1 次</p>
+<pre class=" language-javascript"><code class="language-javascript">document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'scroll'</span><span class="token punctuation">,</span> <span class="token function">throttle</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span>func<span class="token punctuation">,</span> delay <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> lock <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>lock<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">func</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    lock <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
     <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-      instance<span class="token punctuation">.</span>visible <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span> duration<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      lock <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>过滤掉重复的验证事件(用户输入停止后 300ms 触发验证)</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span>func<span class="token punctuation">,</span> delay <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">,</span> I <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token function">clearInterval</span><span class="token punctuation">(</span>I<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    I <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span>func<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// I = setTimeout((...args) => {func(...args)}, delay);</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h2><p>柯里化，英语：Currying(果然是满满的英译中的既视感)，是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。</p>
+<p><a href="https://www.jianshu.com/p/2975c25e4d71" target="_blank" rel="noopener">详解 JS 函数柯里化</a></p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> curry <span class="token operator">=</span> <span class="token punctuation">(</span>func<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> g <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">...</span>allArgs<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span>
+    allArgs<span class="token punctuation">.</span>length <span class="token operator">>=</span> func<span class="token punctuation">.</span>length
+      <span class="token operator">?</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token operator">...</span>allArgs<span class="token punctuation">)</span>
+      <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">g</span><span class="token punctuation">(</span><span class="token operator">...</span>allArgs<span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> g<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> Toast<span class="token punctuation">;</span></code></pre>
-</li>
-<li><p>在 main.js 中引入</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> Toast <span class="token keyword">from</span> <span class="token string">'./toast'</span><span class="token punctuation">;</span>
-Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Toast<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-</li>
-<li><p>使用 toast</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$toast</span><span class="token punctuation">(</span><span class="token string">'XXXXXXXXX'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-</li>
-</ol>
+<span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token function">curry</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>对于 curry(foo),g 函数参数足够 4 个,就调用 foo(a,b,c,d),如果小于 4 个就返回一个可以继续积累参数的函数</p>
+<h3 id="Y-组合子"><a href="#Y-组合子" class="headerlink" title="Y-组合子"></a>Y-组合子</h3><p>前置知识 lamabda 演算</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> y <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>le<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>f<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">f</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>f<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">le</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token operator">...</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">f</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token operator">...</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> curryY <span class="token operator">=</span> <span class="token punctuation">(</span>func<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span>
+  <span class="token function">y</span><span class="token punctuation">(</span><span class="token punctuation">(</span>g<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token punctuation">(</span><span class="token operator">...</span>allArgs<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      allArgs<span class="token punctuation">.</span>length <span class="token operator">>=</span> func<span class="token punctuation">.</span>length
+        <span class="token operator">?</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token operator">...</span>allArgs<span class="token punctuation">)</span>
+        <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">g</span><span class="token punctuation">(</span><span class="token operator">...</span>allArgs<span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token function">curryY</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 
             </div>
             <hr/>
@@ -602,7 +583,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://pandaspace.github.io/ppy.github.io/2020/05/25/vue-toast/">https://pandaspace.github.io/ppy.github.io/2020/05/25/vue-toast/</a>
+                    <a href="https://pandaspace.github.io/ppy.github.io/2020/05/24/javascript/algorithm/">https://pandaspace.github.io/ppy.github.io/2020/05/24/javascript/algorithm/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -642,14 +623,6 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
                             
                                 <a href="/ppy.github.io/tags/Javascript/">
                                     <span class="chip bg-color">Javascript</span>
-                                </a>
-                            
-                                <a href="/ppy.github.io/tags/vue/">
-                                    <span class="chip bg-color">vue</span>
-                                </a>
-                            
-                                <a href="/ppy.github.io/tags/toast/">
-                                    <span class="chip bg-color">toast</span>
                                 </a>
                             
                         </div>
@@ -725,60 +698,51 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/ppy.github.io/2020/05/25/vue-toast/">
+                <a href="/ppy.github.io/2020/05/24/markdown/">
                     <div class="card-image">
                         
                         
-                        <img src="/ppy.github.io/medias/featureimages/23.jpg" class="responsive-img" alt="vue封装toast组件">
+                        <img src="/ppy.github.io/medias/featureimages/1.jpg" class="responsive-img" alt="hexo、markdown用法">
                         
-                        <span class="card-title">vue封装toast组件</span>
+                        <span class="card-title">hexo、markdown用法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            vue 封装 toast 组件
-创建 toast.vue 文件
-&lt;template>
-  &lt;!-- 全局提示框 -->
-  &lt;div v-show="visible" class="dialog-tips dialog-c
+                            Markdown 语法中输入数学公式（MathJax）及特殊符号Hexo+github 搭建博客(超级详细版，精细入微)Hexo 博客主题之 hexo-theme-matery 的介绍
+
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-25
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/ppy.github.io/categories/vue/" class="post-category">
-                                    vue
+                            <a href="/ppy.github.io/categories/markdown/" class="post-category">
+                                    markdown
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/ppy.github.io/tags/Javascript/">
-                        <span class="chip bg-color">Javascript</span>
+                    <a href="/ppy.github.io/tags/Markdown/">
+                        <span class="chip bg-color">Markdown</span>
                     </a>
                     
-                    <a href="/ppy.github.io/tags/vue/">
-                        <span class="chip bg-color">vue</span>
-                    </a>
-                    
-                    <a href="/ppy.github.io/tags/toast/">
-                        <span class="chip bg-color">toast</span>
+                    <a href="/ppy.github.io/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
                     </a>
                     
                 </div>
@@ -789,66 +753,50 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/ppy.github.io/2020/05/25/axios/">
+                <a href="/ppy.github.io/2020/05/24/javascript/algorithm/">
                     <div class="card-image">
                         
                         
-                        <img src="/ppy.github.io/medias/featureimages/10.jpg" class="responsive-img" alt="axios二次封装 接口统一存放">
+                        <img src="/ppy.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="算法">
                         
-                        <span class="card-title">axios二次封装 接口统一存放</span>
+                        <span class="card-title">算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            axios 二次封装 接口统一存放
-基于框架：vue
-
-基于 http 库：axios
-
-基本用法：
-
-通过 node 安装:npm install axios
-
-在项目目录的 src 文件夹下新建 providers 文件夹，在该文件夹内
+                            数组展平二维数组展平展平一个数组，数组最多二维[[1,2],[3,4]] =&gt; [1,2,3,4]
+function flatten(arr){
+  return [].concat(...arr)
+}
+let arr = [[1,2
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/ppy.github.io/categories/axios/" class="post-category">
-                                    axios
+                            <a href="/ppy.github.io/categories/Javascript/" class="post-category">
+                                    Javascript
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/ppy.github.io/tags/Javascript/">
                         <span class="chip bg-color">Javascript</span>
-                    </a>
-                    
-                    <a href="/ppy.github.io/tags/vue/">
-                        <span class="chip bg-color">vue</span>
-                    </a>
-                    
-                    <a href="/ppy.github.io/tags/axios/">
-                        <span class="chip bg-color">axios</span>
-                    </a>
-                    
-                    <a href="/ppy.github.io/tags/node/">
-                        <span class="chip bg-color">node</span>
                     </a>
                     
                 </div>
@@ -986,6 +934,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
